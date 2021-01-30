@@ -5,7 +5,10 @@ import { CssBaseline } from "@material-ui/core";
 import useLocalStorage from "../../hooks/useLocalStorage";
 
 const theme = createMuiTheme({
-
+  typography: {
+    fontFamily: 'Poppins, sans-serif',
+  },
+  
   palette: {
     type: "light", 
      background:{
@@ -21,6 +24,10 @@ const theme = createMuiTheme({
 });
 
 const themeDark = createMuiTheme({
+  typography: {
+    fontFamily: 'Poppins, sans-serif',
+  },
+  
   palette: {
     type: "dark",
     background:{
