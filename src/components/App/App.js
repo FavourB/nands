@@ -2,7 +2,6 @@ import React from "react";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core";
 import Paper from "@material-ui/core/Paper";
-
 import { useTheme } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { withTheme } from "../Theme/Theme";
@@ -22,6 +21,7 @@ import Fab from '@material-ui/core/Fab';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import Zoom from '@material-ui/core/Zoom';
 import Hero from "../hero/hero";
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -116,7 +116,7 @@ function App(props) {
           <Toolbar>
           <Grid container direction="row" justify="space-between" alignItems="center">
             <Grid item xs={3}>
-              <img/>
+              <img  src= {require("../../assets/images/logo.png")} alt='logo' style={{width:'10%'}} />
             </Grid>
 
             <Grid item xs={5}>
@@ -139,7 +139,6 @@ function App(props) {
                   <Button variant="outlined" color='secondary'>Contact us</Button>
                 </Grid>
                 <Grid item xs={4} >
-                  {/* <ModeSwitch {...props} checked='darkMode'/> */}
                    <FormControlLabel
           control={
             <Switch
@@ -159,7 +158,7 @@ function App(props) {
       <Toolbar />
       <Container>
         <Box m={2}>
-         <Hero/>
+         <Hero/> 
         </Box>
       </Container>
       <ScrollTop {...props}>
