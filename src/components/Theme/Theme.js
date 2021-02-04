@@ -4,16 +4,51 @@ import { ThemeProvider } from "@material-ui/styles";
 import { CssBaseline } from "@material-ui/core";
 import useLocalStorage from "../../hooks/useLocalStorage";
 
-const theme = createMuiTheme({
+
+const theme = createMuiTheme();
+
+const Lighttheme = createMuiTheme({
   typography: {
     fontFamily: 'Poppins, sans-serif',
+    h1:{
+      fontSize: '2.0rem',
+      fontWeight:'500',
+      '@media (min-width:600px)': {
+      fontSize: '2.0em',
+      },
+      [theme.breakpoints.up('md')]: {
+      fontSize: '3.4rem',
+      marginBottom:theme.spacing(1),
+      },
   },
   
+  h3:{
+      fontSize: '1.0rem',
+      fontWeight:'300',
+      '@media (min-width:600px)': {
+      fontSize: '1.0rem',
+      },
+      [theme.breakpoints.up('md')]: {
+      fontSize: '2.0rem',
+      },
+  },
+  h6:{
+    fontSize: '0.8rem',
+      fontWeight:'300',
+      '@media (min-width:600px)': {
+      fontSize: '0.8em',
+      },
+      [theme.breakpoints.up('md')]: {
+      fontSize: '1.0rem',
+      marginBottom:theme.spacing(1),
+      },
+  },
+  },
   palette: {
     type: "light", 
-     background:{
-      default:"#005792",
-    },
+    background:{
+      default:'#F1F8FE',
+      paper:"#005792"},
     primary:{
       main:'#005792',
     },
@@ -26,12 +61,46 @@ const theme = createMuiTheme({
 const themeDark = createMuiTheme({
   typography: {
     fontFamily: 'Poppins, sans-serif',
+    h1:{
+      fontSize: '2.0rem',
+      fontWeight:'500',
+      '@media (min-width:600px)': {
+      fontSize: '2.0em',
+      },
+      [theme.breakpoints.up('md')]: {
+      fontSize: '3.4rem',
+      marginBottom:theme.spacing(1),
+      },
+  },
+  
+  h3:{
+      fontSize: '1.0rem',
+      fontWeight:'300',
+      '@media (min-width:600px)': {
+      fontSize: '1.0rem',
+      },
+      [theme.breakpoints.up('md')]: {
+      fontSize: '2.0rem',
+      },
+  },
+  h6:{
+    fontSize: '0.8rem',
+      fontWeight:'300',
+      '@media (min-width:600px)': {
+      fontSize: '0.8em',
+      },
+      [theme.breakpoints.up('md')]: {
+      fontSize: '1.0rem',
+      marginBottom:theme.spacing(1),
+      },
+  },
   },
   
   palette: {
     type: "dark",
     background:{
       default:"#001625",
+      paper:"#032338"
     },
     primary:{
       main:'#001625',
@@ -44,7 +113,7 @@ const themeDark = createMuiTheme({
 
 const Theme = (props) => {
   const { children, darkMode } = props;
-  const defaultTheme = darkMode ? themeDark : theme;
+  const defaultTheme = darkMode ? themeDark : Lighttheme;
   return (
     <ThemeProvider theme={defaultTheme}>
       <CssBaseline />
