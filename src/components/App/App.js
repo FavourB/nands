@@ -21,7 +21,7 @@ import Fab from '@material-ui/core/Fab';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import Zoom from '@material-ui/core/Zoom';
 import Hero from "../hero/hero";
-
+import Praises from "../testimonials/testimonials"
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -30,6 +30,18 @@ const useStyles = makeStyles((theme) => ({
       paddingTop: theme.spacing(2),
     },
   },
+  componentcontainer:{
+    marginLeft: theme.spacing(20),
+    marginRight: theme.spacing(20),
+    paddingTop: theme.spacing(6),
+    paddingBottom: theme.spacing(6),
+    [theme.breakpoints.down("xs")]: {
+      marginLeft: theme.spacing(4),
+      marginRight: theme.spacing(4),
+      paddingTop: theme.spacing(4),
+      paddingBottom: theme.spacing(2),
+    },
+  }
 }));
 
 function HideOnScroll(props) {
@@ -108,11 +120,11 @@ function App(props) {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down("xs"));
   return (
-    <div  className="App"className={classes.root}>
+    <div className={classes.root}>
 
         <CssBaseline />
       <HideOnScroll {...props}>
-        <AppBar elevation={10}>
+        <AppBar elevation={0} color='primary'>
           <Toolbar>
           <Grid container direction="row" justify="space-between" alignItems="center">
             <Grid item xs={3}>
@@ -156,11 +168,16 @@ function App(props) {
         </AppBar>
       </HideOnScroll>
       <Toolbar />
-      <Container>
-        <Box m={2}>
-         <Hero/> 
+      <div  style={{ width: '100%' }}>
+        <Box  style={{ width: '100%' }}>
+          <Paper style={{marginTop:-20}}> <Box className={classes.componentcontainer}><Hero/></Box></Paper>
+          <Box className={classes.componentcontainer}><Praises/></Box>
+          <Box className={classes.componentcontainer}><Praises/></Box>
+          <Box className={classes.componentcontainer}><Praises/></Box>
+          <Box className={classes.componentcontainer}><Praises/></Box>
+          <Box className={classes.componentcontainer}><Praises/></Box>
         </Box>
-      </Container>
+      </div>
       <ScrollTop {...props}>
         <Fab color="secondary" size="small" aria-label="scroll back to top">
           <KeyboardArrowUpIcon />
