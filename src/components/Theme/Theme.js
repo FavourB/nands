@@ -4,111 +4,115 @@ import { ThemeProvider } from "@material-ui/styles";
 import { CssBaseline } from "@material-ui/core";
 import useLocalStorage from "../../hooks/useLocalStorage";
 
-
 const theme = createMuiTheme();
 
 const Lighttheme = createMuiTheme({
   typography: {
-    fontFamily: 'Poppins, sans-serif',
-    h1:{
-      fontSize: '2.0rem',
-      fontWeight:'500',
-      '@media (min-width:600px)': {
-      fontSize: '2.0em',
+    fontFamily: "Poppins, sans-serif",
+    h1: {
+      fontSize: "2.0rem",
+      fontWeight: "500",
+      "@media (min-width:600px)": {
+        fontSize: "2.0em",
       },
-      [theme.breakpoints.up('md')]: {
-      fontSize: '3.4rem',
-      marginBottom:theme.spacing(1),
+      [theme.breakpoints.up("md")]: {
+        fontSize: "3.4rem",
+        marginBottom: theme.spacing(1),
       },
-  },
-  
-  h3:{
-      fontSize: '1.0rem',
-      fontWeight:'300',
-      '@media (min-width:600px)': {
-      fontSize: '1.0rem',
+    },
+
+    h3: {
+      fontSize: "1.0rem",
+      fontWeight: "300",
+      "@media (min-width:600px)": {
+        fontSize: "1.0rem",
       },
-      [theme.breakpoints.up('md')]: {
-      fontSize: '2.0rem',
+      [theme.breakpoints.up("md")]: {
+        fontSize: "2.0rem",
       },
-  },
-  h6:{
-    fontSize: '0.8rem',
-      fontWeight:'300',
-      '@media (min-width:600px)': {
-      fontSize: '0.8em',
+    },
+    h6: {
+      fontSize: "0.8rem",
+      fontWeight: "300",
+      "@media (min-width:600px)": {
+        fontSize: "0.8em",
       },
-      [theme.breakpoints.up('md')]: {
-      fontSize: '1.0rem',
-      marginBottom:theme.spacing(1),
+      [theme.breakpoints.up("md")]: {
+        fontSize: "1.0rem",
+        marginBottom: theme.spacing(1),
       },
-  },
+    },
   },
   palette: {
-    type: "light", 
-    background:{
-      default:'#F1F8FE',
-      paper:"#005792"},
-    primary:{
-      main:'#F1F8FE',
+    type: "light",
+    background: {
+      default: "#F1F8FE",
+      paper: "#005792",
     },
-    secondary:{
-      main:'#F8B630',
-      light:'rgba(255, 205, 103, 0.2)'
+    primary: {
+      main: "#F1F8FE",
+      light: "#005792",
+      lighter: "#005792",
+    },
+    secondary: {
+      main: "#F8B630",
+      light: "rgba(255, 205, 103, 0.2)",
     },
   },
 });
 
 const themeDark = createMuiTheme({
   typography: {
-    fontFamily: 'Poppins, sans-serif',
-    h1:{
-      fontSize: '2.0rem',
-      fontWeight:'500',
-      '@media (min-width:600px)': {
-      fontSize: '2.0em',
+    fontFamily: "Poppins, sans-serif",
+    h1: {
+      fontSize: "2.0rem",
+      fontWeight: "500",
+      "@media (min-width:600px)": {
+        fontSize: "2.0em",
       },
-      [theme.breakpoints.up('md')]: {
-      fontSize: '3.4rem',
-      marginBottom:theme.spacing(1),
+      [theme.breakpoints.up("md")]: {
+        fontSize: "3.4rem",
+        marginBottom: theme.spacing(1),
       },
+    },
+
+    h3: {
+      fontSize: "1.0rem",
+      fontWeight: "300",
+      "@media (min-width:600px)": {
+        fontSize: "1.0rem",
+      },
+      [theme.breakpoints.up("md")]: {
+        fontSize: "2.0rem",
+      },
+    },
+    h6: {
+      fontSize: "0.8rem",
+      fontWeight: "300",
+      "@media (min-width:600px)": {
+        fontSize: "0.8em",
+      },
+      [theme.breakpoints.up("md")]: {
+        fontSize: "1.0rem",
+        marginBottom: theme.spacing(1),
+      },
+    },
   },
-  
-  h3:{
-      fontSize: '1.0rem',
-      fontWeight:'300',
-      '@media (min-width:600px)': {
-      fontSize: '1.0rem',
-      },
-      [theme.breakpoints.up('md')]: {
-      fontSize: '2.0rem',
-      },
-  },
-  h6:{
-    fontSize: '0.8rem',
-      fontWeight:'300',
-      '@media (min-width:600px)': {
-      fontSize: '0.8em',
-      },
-      [theme.breakpoints.up('md')]: {
-      fontSize: '1.0rem',
-      marginBottom:theme.spacing(1),
-      },
-  },
-  },
-  
+
   palette: {
     type: "dark",
-    background:{
-      default:"#001625",
-      paper:"#032338"
+    background: {
+      default: "#032338",
+      paper: "#001625",
     },
-    primary:{
-      main:'#001625',
+    primary: {
+      main: "#001625",
+      light: "#001625",
+      lighter: "#68E1FD",
     },
-    secondary:{
-      main:'#FFCD67',
-      light:'rgba(231, 168, 39, 0.2)',
+    secondary: {
+      main: "#FFCD67",
+      light: "rgba(231, 168, 39, 0.2)",
     },
   },
 });
