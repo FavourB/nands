@@ -26,6 +26,9 @@ import Team from "../team/team"
 import Accomplishments from "../accomplishment/accomplishment";
 import Contact from "../Contact/Contact";
 import About from "../About/About";
+import Footer from "../footer/footer";
+
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -39,6 +42,12 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(20),
     paddingTop: theme.spacing(6),
     paddingBottom: theme.spacing(6),
+    [theme.breakpoints.down("md")]: {
+      marginLeft: theme.spacing(10),
+      marginRight: theme.spacing(10),
+      paddingTop: theme.spacing(4),
+      paddingBottom: theme.spacing(2),
+    },
     [theme.breakpoints.down("xs")]: {
       marginLeft: theme.spacing(4),
       marginRight: theme.spacing(4),
@@ -203,18 +212,18 @@ function App(props) {
           </Toolbar>
         </AppBar>
       </HideOnScroll>
-      <Toolbar />
+      <Toolbar id='back-to-top-anchor'/>
       <div  style={{ width: '100%' }}>
         <Box  style={{ width: '100%' }}>
           <Paper style={{marginTop:-20}}> <Box className={classes.componentcontainer}><Hero/></Box></Paper>
           <Box className={classes.componentcontainer}><Praises/></Box>
           <Box className={classes.componentcontainer}><Praises/></Box>
-          <Box className={classes.componentcontainer}><Praises /></Box>
+          <Box className={classes.componentcontainer}><Team /></Box>
           <Box className={classes.componentcontainer}><About/></Box>
-          <Box className={classes.componentcontainer}><Team/></Box>
           <Paper style={{marginTop:-20}} elevation={0} className={classes.papers}> <Box className={classes.componentcontainer}><Praises/></Box></Paper>
           <Box className={classes.componentcontainer1}><Accomplishments/></Box>
-          <Box className={classes.componentcontainer}><Praises/></Box>
+          <Box className={classes.componentcontainer}><Contact/></Box>
+          <Paper style={{marginTop:-20}}><Box className={classes.componentcontainer}><Footer/></Box> </Paper>
         </Box>
       </div>
       <ScrollTop {...props}>

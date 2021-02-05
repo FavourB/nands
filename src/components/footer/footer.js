@@ -11,31 +11,29 @@ const useStyles = makeStyles((theme) => ({
   },
   paper: {
     padding: theme.spacing(2),
-    textAlign: 'center',
+    background:theme.palette.primary.light,
     borderRadius:10,
-    background:theme.palette.primary.main,
     marginBottom:30,
-    color: theme.palette.text.secondary,
   },
 }));
 
-export default function Accomplishments() {
+export default function Footer() {
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
       <Grid container>
         <Grid item xs={12}>
-          <Paper className={classes.paper} elevation={10}>
-            <Grid container direction="row" justify="space-around" alignItems="center">
+          <Paper className={classes.paper} elevation={0}>
+            <Grid container direction="row" justify="space-between" alignItems="center">
                 <Grid item xs={3} sm={3}>
-                    <img src= {require("../../assets/images/cup.gif")} alt='light' style={{width:'50%'}}/>
+                    <img src= {require("../../assets/images/logowhite.png")} alt='light' style={{width:'30%'}}/>
                 </Grid>
                 <Grid item xs={3} sm={3}>
-                    <img src= {require("../../assets/images/jss.svg")} alt='light' style={{width:'100%',}}/>
+                   
                 </Grid>
                 <Grid item xs={3} sm={3}>
-                <img src= {require("../../assets/images/upwork.svg")} alt='light' style={{width:'80%', }}/>
+               
                 </Grid>
             </Grid>
             <Grid container direction="row" justify="space-around" alignItems="center">
@@ -50,18 +48,22 @@ export default function Accomplishments() {
                   </Typography>
                 </Grid>
                 <Grid item xs={3} sm={3}>
-                <img src= {require("../../assets/images/upwork.svg")} alt='light' style={{width:'80%', }}/>
+                </Grid>
+                <Grid item xs={3} sm={3}>
                 </Grid>
             </Grid>
-            <Grid container direction="row" justify="space-around" alignItems="center">
+            <Grid container direction="row" justify="space-between" alignItems="center">
                 <Grid item xs={3} sm={3}>
-                    <Button></Button>
+                    <Button style={{color:'#68E1FD'}}>HOME</Button>
                 </Grid>
                 <Grid item xs={3} sm={3}>
-                    <img src= {require("../../assets/images/jss.svg")} alt='light' style={{width:'100%',}}/>
+                  <Button style={{color:'#68E1FD'}}>OUR SERVICES</Button>
                 </Grid>
                 <Grid item xs={3} sm={3}>
-                <img src= {require("../../assets/images/upwork.svg")} alt='light' style={{width:'80%', }}/>
+                  <Button style={{color:'#68E1FD'}}>TESTIMONIALS</Button>
+                </Grid>
+                <Grid item xs={3} sm={3}>
+                  <Button style={{color:'#68E1FD'}}>CONTACT US</Button>
                 </Grid>
             </Grid>
           </Paper>
