@@ -23,6 +23,7 @@ import Zoom from '@material-ui/core/Zoom';
 import Hero from "../hero/hero";
 import Praises from "../testimonials/testimonials"
 import Team from "../team/team"
+import Accomplishments from "../accomplishment/accomplishment";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -42,7 +43,24 @@ const useStyles = makeStyles((theme) => ({
       paddingTop: theme.spacing(4),
       paddingBottom: theme.spacing(2),
     },
-  }
+  },
+  componentcontainer1:{
+    marginLeft: theme.spacing(20),
+    marginRight: theme.spacing(20),
+    marginTop: -90,
+    paddingTop: theme.spacing(0),
+    paddingBottom: theme.spacing(6),
+    [theme.breakpoints.down("xs")]: {
+      marginLeft: theme.spacing(4),
+      marginRight: theme.spacing(4),
+      marginTop: -50,
+      paddingTop: theme.spacing(0),
+      paddingBottom: theme.spacing(2),
+    },
+  },
+  papers:{
+    background:theme.palette.secondary.light,
+  },
 }));
 
 function HideOnScroll(props) {
@@ -125,7 +143,7 @@ function App(props) {
 
         <CssBaseline />
       <HideOnScroll {...props}>
-        <AppBar elevation={0} color='primary'>
+        <AppBar elevation={0}>
           <Toolbar>
           <Grid container direction="row" justify="space-between" alignItems="center">
             <Grid item xs={3}>
@@ -178,6 +196,8 @@ function App(props) {
           <Box className={classes.componentcontainer}><Praises/></Box>
           <Box className={classes.componentcontainer}><Praises/></Box>
           <Box className={classes.componentcontainer}><Praises/></Box>
+          <Paper style={{marginTop:-20}} elevation={0} className={classes.papers}> <Box className={classes.componentcontainer}><Praises/></Box></Paper>
+          <Box className={classes.componentcontainer1}><Accomplishments/></Box>
         </Box>
       </div>
       <ScrollTop {...props}>

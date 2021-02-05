@@ -50,10 +50,11 @@ const Lighttheme = createMuiTheme({
       default:'#F1F8FE',
       paper:"#005792"},
     primary:{
-      main:'#005792',
+      main:'#F1F8FE',
     },
     secondary:{
       main:'#F8B630',
+      light:'rgba(255, 205, 103, 0.2)'
     },
   },
 });
@@ -107,6 +108,7 @@ const themeDark = createMuiTheme({
     },
     secondary:{
       main:'#FFCD67',
+      light:'rgba(231, 168, 39, 0.2)',
     },
   },
 });
