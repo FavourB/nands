@@ -22,6 +22,7 @@ import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import Zoom from '@material-ui/core/Zoom';
 import Hero from "../hero/hero";
 import Praises from "../testimonials/testimonials"
+import Team from "../team/team"
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -173,6 +174,7 @@ function App(props) {
           <Paper style={{marginTop:-20}}> <Box className={classes.componentcontainer}><Hero/></Box></Paper>
           <Box className={classes.componentcontainer}><Praises/></Box>
           <Box className={classes.componentcontainer}><Praises/></Box>
+          <Box className={classes.componentcontainer}><Team /></Box>
           <Box className={classes.componentcontainer}><Praises/></Box>
           <Box className={classes.componentcontainer}><Praises/></Box>
           <Box className={classes.componentcontainer}><Praises/></Box>
