@@ -29,16 +29,16 @@ const WhyChooseUs = () => {
 
     return (
         <Grid>
-            <Grid container justify="center" className="ml-lg-5 ml-sm-5">
-                <div className="mb-5 mt-1">
+            <Grid container justify="center" className="ml-lg-5 ml-smOnly-5 ml-xsOnly-4">
+                <Grid justify="center" className="mb-5 mt-1 mr-smOnly-5 pr-smOnly-5">
                     WHY CHOOSE US
-                </div>
+                </Grid >
 
                 <Grid container justify="center" className={classes.root} direction="row">
 
                     {/* <Grid item justify="center">
                     <Grid container justify="center"  > */}
-                    <Grid item xs={6} sm={6} md={3} className="ml-lg-n3 ">
+                    <Grid item xs={7} sm={6} md={3} className=" mb-smOnly-5 pl-smOnly-5">
                         <Card elevation={10} className={classes.card} >
                             <img src={require("../assets/images/star.svg")}
                                 alt='start'
@@ -52,7 +52,7 @@ const WhyChooseUs = () => {
                            </Typography >
                         </Card>
                     </Grid>
-                    <Grid item xs={6} sm={6} md={3} >
+                    <Grid item xs={7} sm={6} md={3} className=" mb-smOnly-4 ">
                         <Card elevation={10} className={classes.card}>
                             <img src={require("../assets/images/star.svg")}
                                 alt='start'
@@ -67,7 +67,7 @@ const WhyChooseUs = () => {
                            </Typography >
                         </Card>
                     </Grid>
-                    <Grid item xs={6} sm={6} md={3} >
+                    <Grid item xs={7} sm={6} md={3} className="pl-smOnly-5">
                         <Card elevation={10} className={classes.card}>
                             <img src={require("../assets/images/star.svg")}
                                 alt='start'
@@ -82,7 +82,7 @@ const WhyChooseUs = () => {
                            </Typography >
                         </Card>
                     </Grid>
-                    <Grid item xs={6} sm={6} md={3} >
+                    <Grid item xs={7} sm={6} md={3} >
                         <Card elevation={10} className={classes.card} >
                             <img src={require("../assets/images/star.svg")}
                                 alt='start'
