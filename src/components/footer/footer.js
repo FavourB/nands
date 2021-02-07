@@ -44,7 +44,7 @@ export default function Footer() {
                 </Grid>
                 <Grid item xs={3} sm={3}>
                   <Typography variant='h6' style={{color:'#FFFFFF'}} >
-                     We are a team of experts committed to bring your dreams to life. 
+                  N&S Tech seeks to provide solutions to high-impact problems with technology;  putting together highly talented engineering teams quickly, with the needed skills, to work as part of a remote, high functioning, distributed team.
                   </Typography>
                 </Grid>
                 <Grid item xs={3} sm={3}>

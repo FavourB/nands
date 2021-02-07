@@ -42,6 +42,26 @@ const Lighttheme = createMuiTheme({
         marginBottom: theme.spacing(1),
       },
     },
+    body1: {
+      fontSize: "0.87rem",
+      fontWeight: "700",
+      "@media (min-width:600px)": {
+        fontSize: "0.87rem",
+      },
+      [theme.breakpoints.up("md")]: {
+        fontSize: "1.0rem",
+      },
+    },
+    body2: {
+      fontSize: "0.7rem",
+      fontWeight: "300",
+      "@media (min-width:600px)": {
+        fontSize: "0.7rem",
+      },
+      [theme.breakpoints.up("md")]: {
+        fontSize: "0.8rem",
+      },
+    },
   },
   palette: {
     type: "light",
@@ -53,11 +73,17 @@ const Lighttheme = createMuiTheme({
       main: "#F1F8FE",
       light: "#005792",
       lighter: "#005792",
+      dark:"#fff"
     },
     secondary: {
       main: "#F8B630",
       light: "rgba(255, 205, 103, 0.2)",
     },
+    common:{
+      text: "#000",
+      linkColor:"#F8B630",
+      text2:"#fff"
+    }
   },
 });
 
@@ -97,6 +123,26 @@ const themeDark = createMuiTheme({
         marginBottom: theme.spacing(1),
       },
     },
+    body1: {
+      fontSize: "0.87rem",
+      fontWeight: "700",
+      "@media (min-width:600px)": {
+        fontSize: "0.87rem",
+      },
+      [theme.breakpoints.up("md")]: {
+        fontSize: "1.0rem",
+      },
+    },
+    body2: {
+      fontSize: "0.7rem",
+      fontWeight: "300",
+      "@media (min-width:600px)": {
+        fontSize: "0.7rem",
+      },
+      [theme.breakpoints.up("md")]: {
+        fontSize: "0.8rem",
+      },
+    },
   },
 
   palette: {
@@ -109,11 +155,16 @@ const themeDark = createMuiTheme({
       main: "#001625",
       light: "#001625",
       lighter: "#68E1FD",
+      dark: "#022A45"
     },
     secondary: {
       main: "#FFCD67",
       light: "rgba(231, 168, 39, 0.2)",
     },
+    common:{
+      text: "#fff",
+      cards:"#022A45"
+    }
   },
 });
 

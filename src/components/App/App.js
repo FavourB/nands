@@ -27,8 +27,11 @@ import Accomplishments from "../accomplishment/accomplishment";
 import Contact from "../Contact/Contact";
 import About from "../About/About";
 import Footer from "../footer/footer";
+import { Link, animateScroll as scroll } from 'react-scroll';
 
 
+import WhyChooseUs from "../WhyChooseUs"
+import OurServices from "../OurServices"
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -43,8 +46,8 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: theme.spacing(6),
     paddingBottom: theme.spacing(6),
     [theme.breakpoints.down("md")]: {
-      marginLeft: theme.spacing(10),
-      marginRight: theme.spacing(10),
+      marginLeft: theme.spacing(8),
+      marginRight: theme.spacing(9),
       paddingTop: theme.spacing(4),
       paddingBottom: theme.spacing(2),
     },
@@ -72,6 +75,25 @@ const useStyles = makeStyles((theme) => ({
   papers:{
     background:theme.palette.secondary.light,
   },
+  link:{
+    color:"theme.palette.common.text",
+    textDecoration:"none",
+    textTransform:"capitalize",
+    
+	
+		'&.active':{
+			color:theme.palette.secondary.main,
+			// paddingBottom:20,
+			// borderBottom:'2px solid #1D1974',
+			textDecoration:"none"
+		},
+		'&:hover':{
+			color:theme.palette.secondary.main,
+      textDecoration:"none",
+      background:"none",
+      
+		},
+	},
 }));
 
 function HideOnScroll(props) {
@@ -177,9 +199,9 @@ function App(props) {
                   justify="space-evenly"
                   alignItems="center"
                 >
-                  <Grid item>Home</Grid>
-                  <Grid item>Our Services</Grid>
-                  <Grid item>About Us</Grid>
+                  <Grid item> <Button  className={classes.link}><Link to="home" spy={true} smooth ={true} offset ={-100} duration={500}>Home</Link>  </Button></Grid>
+                  <Grid item> <Button  className={classes.link}><Link to="ourservices" spy={true} smooth ={true} offset ={-100} duration={500}>Our Services</Link>  </Button></Grid>
+                  <Grid item> <Button  className={classes.link}><Link to="aboutus" spy={true} smooth ={true} offset ={-100} duration={500} >About Us</Link>  </Button></Grid>
                 </Grid>
               </Grid>
 
@@ -192,7 +214,7 @@ function App(props) {
                 >
                   <Grid item xs={4}>
                     <Button variant="outlined" color="secondary">
-                      Contact us
+                    <Link to="aboutus" spy={true} smooth ={true} offset ={-300} duration={500} >Contact us</Link>
                     </Button>
                   </Grid>
                   <Grid item xs={4}>
@@ -215,14 +237,14 @@ function App(props) {
       <Toolbar id='back-to-top-anchor'/>
       <div  style={{ width: '100%' }}>
         <Box  style={{ width: '100%' }}>
-          <Paper style={{marginTop:-20}}> <Box className={classes.componentcontainer}><Hero/></Box></Paper>
-          <Box className={classes.componentcontainer}><Praises/></Box>
-          <Box className={classes.componentcontainer}><Praises/></Box>
+          <Paper style={{marginTop:-20}}> <Box className={classes.componentcontainer} id="home"><Hero/></Box></Paper>
+          <Box className={classes.componentcontainer}><WhyChooseUs/></Box>
+          <Box className={classes.componentcontainer} id="ourservices"><OurServices/></Box>
           <Box className={classes.componentcontainer}><Team /></Box>
-          <Box className={classes.componentcontainer}><About/></Box>
+          <Box className={classes.componentcontainer} id="aboutus"><About/></Box>
           <Paper style={{marginTop:-20}} elevation={0} className={classes.papers}> <Box className={classes.componentcontainer}><Praises/></Box></Paper>
           <Box className={classes.componentcontainer1}><Accomplishments/></Box>
-          <Box className={classes.componentcontainer}><Contact/></Box>
+          <Box className={classes.componentcontainer} id="contactus"><Contact/></Box>
           <Paper style={{marginTop:-20}}><Box className={classes.componentcontainer}><Footer/></Box> </Paper>
         </Box>
       </div>
