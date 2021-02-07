@@ -49,12 +49,7 @@ function About() {
           </Typography>
           <div className={classes.border}></div>
           <Typography pr={5} className={classes.about__text} variant="p">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book. It has survived not
-            only five centuries, but also the leap into electronic typesetting,
-            remaining essentially unchanged
+            As all things do, it started as an idea. We are a team of experts
           </Typography>
         </Grid>
         <Grid item xs={12} lg={6}>

@@ -29,9 +29,9 @@ export default class Hero extends Component {
         <div style={{marginTop:50,}}>
          
           <Grid container direction="row" justify="center"  alignItems="center">
-            <Grid item xs={12} sm={7}>
+            <Grid item xs={12} sm={8}>
               <Typography variant='h1' style={{color:'#FFFFFF'}}>
-                Need a
+                Need a <span> </span>
                 {'<'}
                 <span>
                     <Typography variant='span' color='secondary' id="myElement">
@@ -41,11 +41,11 @@ export default class Hero extends Component {
                 {'>'}
               </Typography>
               <Typography variant='h6' style={{color:'#FFFFFF'}} >
-                We are a team of experts committed to bring your dreams to life. 
+                We are a team of experts committed to bringing your dreams to life. 
               </Typography><br/>
               <StyledButton variant='contained' color='secondary' > Learn More</StyledButton>
             </Grid>
-            <Grid item xs={11} sm={5}>
+            <Grid item xs={11} sm={4}>
             <img src= {require("../../assets/images/hero.gif")} alt='light' style={{width:'100%', paddingRight:30, paddingLeft:-20}}/>
             </Grid>
           </Grid>
