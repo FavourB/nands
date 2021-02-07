@@ -13,7 +13,9 @@ import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
 const useStyles = makeStyles((theme) => ({
     card: {
         height: 273,
-        width: 250,
+        width: 300,
+        marginTop: theme.spacing(4),
+        paddingLeft: theme.spacing(10)
         //backgroundColor: theme.palette.primary.dark,
 
     },
@@ -29,86 +31,161 @@ const OurServices = () => {
     const classes = useStyles();
 
     return (
-        <div>
-            <Grid justify="center">
-                <div className="mb-5 mt-1">
-                    OUR SERVICES
-                </div>
-            </Grid>
+        <Grid>
+
+            <Grid justify="center" container className="mb-5 mt-3 mr-smOnly-5 pr-smOnly-5">
+                OUR SERVICES
+                </Grid >
+
             <Grid container justify="center" className={classes.root}>
 
                 {/* <Grid item>
                     <Grid container justify="center"> */}
-                <Grid item xs={12} sm={6}>
+                <Grid justfy="center" item xs={12} sm={6}>
                     <div className={classes.card}>
-                        <Typography variant="body1">
+                        <Typography variant="h4" className="mb-4">
                             Web Development
                       </Typography>
-                        <Typography variant="body 2">
+                        <Typography variant="body 2" >
                             We are an agile software company providing both back-end and front-end development.
                       </Typography>
-                        {/* <List >
 
-                                <ListItem>
-                                    <ListItemIcon>
-                                        < FiberManualRecordIcon />
-                                    </ListItemIcon>
-                                    <ListItemText>
-                                        <Typography >
-                                            Web Development
-                      </Typography>
-                                    </ListItemText>
-                                </ListItem>
-
-                                <ListItem>
-                                    <ListItemIcon>
-                                        < FiberManualRecordIcon />
-                                    </ListItemIcon>
-                                    <ListItemText>
-                                        <Typography >
-                                            Web Development
-                      </Typography>
-                                    </ListItemText>
-                                </ListItem>
-
-                                <ListItem>
-                                    <ListItemIcon>
-                                        < FiberManualRecordIcon />
-                                    </ListItemIcon>
-                                    <ListItemText>
-                                        <Typography >
-                                            Web Development
-                      </Typography>
-                                    </ListItemText>
-                                </ListItem>
-
-                                <ListItem>
-                                    <ListItemIcon>
-                                        < FiberManualRecordIcon />
-                                    </ListItemIcon>
-                                    <ListItemText>
-                                        <Typography >
-                                            Web Development
-                      </Typography>
-                                    </ListItemText>
-                                </ListItem>
-
-
-                            </List> */}
                     </div>
                 </Grid>
-                <Grid item xs={12} sm={6}>
+                <Grid item xs={12} sm={5} className="pl-5">
                     <img src={require("../assets/images/mobile.gif")}
                         alt='start'
-                        style={{ width: '60%', paddingRight: 30, paddingLeft: -20 }}
+                        style={{ width: '70%', paddingLeft: '20px' }}
                     />
                 </Grid>
                 {/* </Grid>
                 </Grid> */}
             </Grid>
+            <Grid container justify="center" className={classes.root}>
 
-        </div>
+                {/* <Grid item>
+    <Grid container justify="center"> */}
+                <Grid justfy="center" item xs={12} sm={6}>
+                    <img src={require("../assets/images/mobile.gif")}
+                        alt='start'
+                        style={{ width: '50%', paddingLeft: '20px' }}
+                    />
+
+                </Grid>
+                <Grid item xs={12} sm={5} className="pl-5">
+                    <div className={classes.card}>
+                        <Typography variant="h4" className="mb-4">
+                            Web Development
+                        </Typography>
+                        <Typography variant="body 2" >
+                            We are an agile software company providing both back-end and front-end development.
+                        </Typography>
+
+                    </div>
+                </Grid>
+                {/* </Grid>
+</Grid> */}
+            </Grid>
+            <Grid container justify="center" className={classes.root}>
+
+                {/* <Grid item>
+    <Grid container justify="center"> */}
+                <Grid justfy="center" item xs={12} sm={6}>
+                    <div className={classes.card}>
+                        <Typography variant="h4" className="mb-4">
+                            Web Development
+                        </Typography>
+                        <Typography variant="body 2" >
+                            We are an agile software company providing both back-end and front-end development.
+                        </Typography>
+
+                    </div>
+                </Grid>
+                <Grid item xs={12} sm={5} className="pl-5">
+                    <img src={require("../assets/images/mobile.gif")}
+                        alt='start'
+                        style={{ width: '70%', paddingLeft: '20px' }}
+                    />
+                </Grid>
+                {/* </Grid>
+</Grid> */}
+            </Grid>
+            <Grid container justify="center" className={classes.root}>
+
+                {/* <Grid item>
+<Grid container justify="center"> */}
+                <Grid justfy="center" item xs={12} sm={6}>
+                    <img src={require("../assets/images/mobile.gif")}
+                        alt='start'
+                        style={{ width: '50%', paddingLeft: '20px' }}
+                    />
+
+                </Grid>
+                <Grid item xs={12} sm={5} className="pl-5">
+                    <div className={classes.card}>
+                        <Typography variant="h4" className="mb-4">
+                            Web Development
+        </Typography>
+                        <Typography variant="body 2" >
+                            We are an agile software company providing both back-end and front-end development.
+        </Typography>
+
+                    </div>
+                </Grid>
+                {/* </Grid>
+</Grid> */}
+            </Grid>
+        </Grid>
     );
 }
 
 export default OurServices;
+
+//  {/* <List >
+
+//                                 <ListItem>
+//                                     <ListItemIcon>
+//                                         < FiberManualRecordIcon />
+//                                     </ListItemIcon>
+//                                     <ListItemText>
+//                                         <Typography >
+//                                             Web Development
+//                       </Typography>
+//                                     </ListItemText>
+//                                 </ListItem>
+
+//                                 <ListItem>
+//                                     <ListItemIcon>
+//                                         < FiberManualRecordIcon />
+//                                     </ListItemIcon>
+//                                     <ListItemText>
+//                                         <Typography >
+//                                             Web Development
+//                       </Typography>
+//                                     </ListItemText>
+//                                 </ListItem>
+
+//                                 <ListItem>
+//                                     <ListItemIcon>
+//                                         < FiberManualRecordIcon />
+//                                     </ListItemIcon>
+//                                     <ListItemText>
+//                                         <Typography >
+//                                             Web Development
+//                       </Typography>
+//                                     </ListItemText>
+//                                 </ListItem>
+
+//                                 <ListItem>
+//                                     <ListItemIcon>
+//                                         < FiberManualRecordIcon />
+//                                     </ListItemIcon>
+//                                     <ListItemText>
+//                                         <Typography >
+//                                             Web Development
+//                       </Typography>
+//                                     </ListItemText>
+//                                 </ListItem>
+
+
+//                             </List> */}

@@ -42,6 +42,16 @@ const Lighttheme = createMuiTheme({
         marginBottom: theme.spacing(1),
       },
     },
+    h4: {
+      fontSize: "1.5rem",
+      fontWeight: "700",
+      "@media (min-width:600px)": {
+        fontSize: "1.5rem",
+      },
+      [theme.breakpoints.up("md")]: {
+        fontSize: "2.0rem",
+      },
+    },
     body1: {
       fontSize: "0.87rem",
       fontWeight: "700",
@@ -107,6 +117,16 @@ const themeDark = createMuiTheme({
       fontWeight: "300",
       "@media (min-width:600px)": {
         fontSize: "1.0rem",
+      },
+      [theme.breakpoints.up("md")]: {
+        fontSize: "2.0rem",
+      },
+    },
+    h4: {
+      fontSize: "1.5rem",
+      fontWeight: "700",
+      "@media (min-width:600px)": {
+        fontSize: "1.5rem",
       },
       [theme.breakpoints.up("md")]: {
         fontSize: "2.0rem",
