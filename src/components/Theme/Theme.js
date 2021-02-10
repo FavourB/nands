@@ -13,7 +13,7 @@ const Lighttheme = createMuiTheme({
       fontSize: "2.0rem",
       fontWeight: "500",
       "@media (min-width:600px)": {
-        fontSize: "2.0em",
+        fontSize: "2.5em",
       },
       [theme.breakpoints.up("md")]: {
         fontSize: "3.4rem",
@@ -31,6 +31,26 @@ const Lighttheme = createMuiTheme({
         fontSize: "2.0rem",
       },
     },
+     h4: {
+      fontSize: "1.5rem",
+      fontWeight: "700",
+      "@media (min-width:600px)": {
+        fontSize: "1.5rem",
+      },
+      [theme.breakpoints.up("md")]: {
+        fontSize: "2.0rem",
+      },
+    },
+    h5: {
+      fontSize: "0.9rem",
+      fontWeight: "600",
+      "@media (min-width:600px)": {
+        fontSize: "0.9rem",
+      },
+      [theme.breakpoints.up("md")]: {
+        fontSize: "1.2rem",
+      },
+    },
     h6: {
       fontSize: "0.8rem",
       fontWeight: "300",
@@ -42,16 +62,7 @@ const Lighttheme = createMuiTheme({
         marginBottom: theme.spacing(1),
       },
     },
-    h4: {
-      fontSize: "1.5rem",
-      fontWeight: "700",
-      "@media (min-width:600px)": {
-        fontSize: "1.5rem",
-      },
-      [theme.breakpoints.up("md")]: {
-        fontSize: "2.0rem",
-      },
-    },
+   
     body1: {
       fontSize: "0.87rem",
       fontWeight: "700",
@@ -104,10 +115,10 @@ const themeDark = createMuiTheme({
       fontSize: "2.0rem",
       fontWeight: "500",
       "@media (min-width:600px)": {
-        fontSize: "2.0em",
+        fontSize: "2.5em",
       },
       [theme.breakpoints.up("md")]: {
-        fontSize: "3.4rem",
+        fontSize: "3.0rem",
         marginBottom: theme.spacing(1),
       },
     },
@@ -132,14 +143,24 @@ const themeDark = createMuiTheme({
         fontSize: "2.0rem",
       },
     },
+    h5: {
+      fontSize: "0.9rem",
+      fontWeight: "600",
+      "@media (min-width:600px)": {
+        fontSize: "0.9rem",
+      },
+      [theme.breakpoints.up("md")]: {
+        fontSize: "1.2rem",
+      },
+    },
     h6: {
       fontSize: "0.8rem",
       fontWeight: "300",
       "@media (min-width:600px)": {
-        fontSize: "0.8em",
+        fontSize: "1.0em",
       },
       [theme.breakpoints.up("md")]: {
-        fontSize: "1.0rem",
+        fontSize: "1.1rem",
         marginBottom: theme.spacing(1),
       },
     },

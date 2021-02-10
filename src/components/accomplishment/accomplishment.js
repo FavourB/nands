@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2),
     textAlign: 'center',
     borderRadius:10,
-    background:theme.palette.primary.main,
+    background:theme.palette.background.default,
     marginBottom:30,
     color: theme.palette.text.secondary,
   },
