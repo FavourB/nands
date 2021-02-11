@@ -1,6 +1,9 @@
 import React from 'react';
 import { Card, Grid, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import Slide from '@material-ui/core/Slide';
+import { useScrollTrigger } from "@material-ui/core";
+
 // import List from '@material-ui/core/List';
 // import ListItem from '@material-ui/core/ListItem';
 // import ListItemAvatar from '@material-ui/core/ListItemAvatar';
@@ -16,32 +19,58 @@ const useStyles = makeStyles((theme) => ({
         width: 350,
         marginTop: theme.spacing(4),
         paddingLeft: theme.spacing(10),
-        "@media (max-width:600px)": {
-            width: 210,
-            height: 250,
-            marginLeft: theme.spacing(2)
 
-        },
         "@media (max-width:960px)": {
             height: 303,
             width: 250,
             paddingLeft: theme.spacing(7),
 
         },
+        "@media (max-width:600px)": {
+            width: 260,
+            height: 250,
+            marginLeft: theme.spacing(0),
+            paddingLeft: theme.spacing(0),
+        },
     },
     control: {
         padding: theme.spacing(2),
     },
-    title: {
-        padding: theme.spacing(2, 0)
-    },
+
     grid: {
-        "@media (max-width:960px)": {
-            flexDirection: 'row-reverse',
-            marginLeft: "8px",
-        },
+        alignItems: "flex-start",
+        justifyContent: "space-between",
         "@media (max-width:660px)": {
             flexDirection: 'row-reverse',
+
+            //marginLeft: "8px",
+        },
+        "@media (max-width:600px)": {
+            display: "block",
+
+
+            //marginLeft: "8px",
+        },
+    },
+    grid2: {
+        alignItems: "flex-start",
+        justifyContent: "space-between",
+
+        "@media (max-width:600px)": {
+            display: "block",
+
+
+            //marginLeft: "8px",
+        },
+    },
+    title: {
+        padding: theme.spacing(4, 0),
+        textAlign: "center"
+    },
+    image: {
+        "@media (max-width:600px)": {
+            width: "80 %",
+
             //marginLeft: "8px",
         },
     }
@@ -49,45 +78,51 @@ const useStyles = makeStyles((theme) => ({
 
 const OurServices = () => {
     const classes = useStyles();
+    const ref = React.useRef(null);
+
+    let scrollTrigger = useScrollTrigger({
+        disableHysteresis: true,
+        target: ref,
+    });
 
     return (
         <Grid>
 
-            <Grid justify="center" container className="mb-5 mt-3 mr-smOnly-5 pr-smOnly-5">
+            <Grid justify="center" container className={classes.title} >
                 OUR SERVICES
                 </Grid >
-
-            <Grid container justify="center" className="pl-md-1">
-                <Grid justfy="center" item xs={7} lg={6} sm={5} md={5} >
-                    <div className={classes.card}>
-                        <Typography variant="h4" className="mb-4">
-                            Web Development
+            <Slide direction="up" in={scrollTrigger} mountOnEnter >
+                <Grid container className={classes.grid2}>
+                    <Grid justfy="center" item xs={8} lg={5} sm={5} md={5} >
+                        <div className={classes.card}>
+                            <Typography variant="h4" className="mb-4">
+                                Web Development
                       </Typography>
-                        <Typography variant="body 2" >
-                            Responsive web development, including front-end and back-end services, for all website variations; e-commerece, video-conferencing, etc.
+                            <Typography variant="body 2" >
+                                Responsive web development, including front-end and back-end services, for all website variations; e-commerece, video-conferencing, etc.
                       </Typography>
 
-                    </div>
-                </Grid>
-                <Grid item xs={7} lg={5} sm={6} md={5} className="pl-md-5">
-                    <img src={require("../assets/images/webdev1.gif")} className={classes.image}
+                        </div>
+                    </Grid>
+                    <Grid item xs={8} lg={5} sm={6} md={5} className=" pl-lg-2">
+                        <img src={require("../assets/images/webdev1.gif")} className={classes.image}
+                            alt='start'
+                            style={{ width: '70%', paddingLeft: '20px' }}
+                        />
+                    </Grid>
+                </Grid></Slide>
+
+            <Grid container className={classes.grid}>
+
+
+                <Grid item xs={8} sm={6} lg={5} md={5} className=" pl-lg-2">
+                    <img src={require("../assets/images/mobile.gif")} className={classes.image}
                         alt='start'
-                        style={{ width: '70%', paddingLeft: '20px' }}
-                    />
-                </Grid>
-            </Grid>
-
-            <Grid container justify="center" className={classes.grid}>
-
-
-                <Grid justfy="center" item xs={7} sm={7} lg={5} md={5} className="pl-md-5">
-                    <img src={require("../assets/images/mobile.gif")}
-                        alt='start'
-                        style={{ width: '60%', paddingLeft: '22px' }}
+                        style={{ width: '60%', paddingLeft: '20px' }}
                     />
 
                 </Grid>
-                <Grid item xs={7} sm={5} lg={5} md={5} className="pl-md-4 ">
+                <Grid item xs={8} sm={6} lg={5} md={5} className="pl-md-0 pl-lg-0">
                     <div className={classes.card}>
                         <Typography variant="h4" className="mb-4">
                             Mobile App Development
@@ -100,10 +135,10 @@ const OurServices = () => {
                 </Grid>
 
             </Grid>
-            <Grid container justify="center" >
+            <Grid container className={classes.grid2}>
 
 
-                <Grid justfy="center" item xs={7} lg={5} sm={6} md={5} className="pl-md-4">
+                <Grid justfy="center" item xs={8} lg={5} sm={6} md={5} className=" pl-lg-0">
                     <div className={classes.card}>
                         <Typography variant="h4" className="mb-4">
                             Product Design
@@ -114,24 +149,24 @@ const OurServices = () => {
 
                     </div>
                 </Grid>
-                <Grid item xs={7} lg={5} sm={6} md={5} className="pl-md-2">
-                    <img src={require("../assets/images/product design.gif")}
+                <Grid item xs={7} lg={5} sm={6} md={5} className=" pl-lg-0">
+                    <img src={require("../assets/images/product design.gif")} className={classes.image}
                         alt='start'
                         style={{ width: '60%', paddingLeft: '20px' }}
                     />
                 </Grid>
 
             </Grid>
-            <Grid container justify="center" className={classes.grid}>
+            <Grid container className={classes.grid}>
 
-                <Grid justfy="center" item xs={7} lg={5} sm={6} md={5} className="pl-md-5">
-                    <img src={require("../assets/images/video.gif")}
+                <Grid item xs={7} lg={5} sm={6} md={5} className=" pl-lg-5">
+                    <img src={require("../assets/images/video.gif")} className={classes.image}
                         alt='start'
-                        style={{ width: '50%', paddingLeft: '20px' }}
+                        style={{ width: '60%', paddingLeft: '20px' }}
                     />
 
                 </Grid>
-                <Grid item xs={7} lg={5} md={5} sm={6} className="pl-md-3">
+                <Grid item xs={7} lg={5} md={5} sm={6} className=" pl-lg-0">
                     <div className={classes.card}>
                         <Typography variant="h4" className="mb-4">
                             Video Editing and Animation

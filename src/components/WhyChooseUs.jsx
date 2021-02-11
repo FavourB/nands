@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import { Card } from '@material-ui/core';
@@ -18,6 +18,7 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: theme.palette.primary.dark,
         padding: theme.spacing(5, 3, 3),
         borderRadius: "15px",
+        transition: "transform 0.5s ease-in-out",
         "@media (max-width:1200px)": {
             width: 210,
             height: 250,
@@ -50,7 +51,9 @@ const useStyles = makeStyles((theme) => ({
             // padding: theme.spacing(4, 3, 3),
         },
     },
-
+    cardHovered: {
+        transform: "scale3d(1.05, 1.05, 1)"
+    },
     contain: {
         "@media (max-width:1200px)": {
 
@@ -73,13 +76,35 @@ const useStyles = makeStyles((theme) => ({
         padding: theme.spacing(2),
     },
     title: {
-        padding: theme.spacing(2, 0)
+        padding: theme.spacing(2, 0),
+
+    },
+    title2: {
+        padding: theme.spacing(4, 0),
+        textAlign: "center"
     }
 }));
 
 const WhyChooseUs = () => {
 
     const classes = useStyles();
+    const [state, setState] = useState({
+        raised: false,
+        shadow: 2,
+    })
+    const [state2, setState2] = useState({
+        raised: false,
+        shadow: 2,
+    })
+    const [state4, setState4] = useState({
+        raised: false,
+        shadow: 2,
+    })
+    const [state3, setState3] = useState({
+        raised: false,
+        shadow: 2,
+    })
+
 
     return (
         <Grid>
@@ -87,7 +112,7 @@ const WhyChooseUs = () => {
             //className="ml-lg-5 ml-smOnly-5 ml-xsOnly-4 pr-md-4 pl-md-1"
 
             >
-                <Grid justify="center" className="mb-5 mt-2 mr-smOnly-5 pr-smOnly-5 ">
+                <Grid justify="center" className={classes.title2}>
                     WHY CHOOSE US
                 </Grid >
 
@@ -100,7 +125,10 @@ const WhyChooseUs = () => {
                     <Grid item xs={11} sm={5} md={3}
                     //className=" mb-smOnly-5 pl-smOnly-5 pb-md-4 "
                     >
-                        <Card elevation={8} className={classes.card} >
+                        <Card elevation={8} className={classes.card} classes={{ root: state2.raised ? classes.cardHovered : "" }}
+                            onMouseOver={() => setState2({ raised: true, shadow: 3 })}
+                            onMouseOut={() => setState2({ raised: false, shadow: 1 })}
+                            raised={state2.raised} zdepth={state2.shadow}>
 
                             <StarOutlineIcon classname="px-0" style={{ color: "#FFCD67", fontSize: 40 }} />
                             <Typography variant="body1" className={classes.title}>
@@ -114,7 +142,10 @@ const WhyChooseUs = () => {
                     <Grid item xs={11} sm={5} md={3}
                     //className=" mb-smOnly-4 mr-xs-4"
                     >
-                        <Card elevation={8} className={classes.card}>
+                        <Card elevation={8} className={classes.card} classes={{ root: state3.raised ? classes.cardHovered : "" }}
+                            onMouseOver={() => setState3({ raised: true, shadow: 3 })}
+                            onMouseOut={() => setState3({ raised: false, shadow: 1 })}
+                            raised={state3.raised} zdepth={state3.shadow}>
                             <CheckCircleOutlineIcon classname="px-0" style={{ color: "#FFCD67", fontSize: 40 }} />
                             <Typography variant="body1" className={classes.title}>
                                 Reliability
@@ -128,7 +159,10 @@ const WhyChooseUs = () => {
                     <Grid item xs={11} sm={5} md={3}
                     //className="pl-smOnly-5"
                     >
-                        <Card elevation={8} className={classes.card}>
+                        <Card elevation={8} className={classes.card} classes={{ root: state4.raised ? classes.cardHovered : "" }}
+                            onMouseOver={() => setState4({ raised: true, shadow: 3 })}
+                            onMouseOut={() => setState4({ raised: false, shadow: 1 })}
+                            raised={state4.raised} zdepth={state4.shadow}>
                             <PaymentIcon classname="px-0" style={{ color: "#FFCD67", fontSize: 40 }} />
                             <Typography variant="body1" className={classes.title}>
                                 Cost-effective
@@ -142,7 +176,10 @@ const WhyChooseUs = () => {
                     <Grid item xs={11} sm={5} md={3}
                     //className="pr-md-2"
                     >
-                        <Card elevation={8} className={classes.card} >
+                        <Card elevation={8} className={classes.card} classes={{ root: state.raised ? classes.cardHovered : "" }}
+                            onMouseOver={() => setState({ raised: true, shadow: 3 })}
+                            onMouseOut={() => setState({ raised: false, shadow: 1 })}
+                            raised={state.raised} zdepth={state.shadow}>
                             <PersonalVideoIcon classname="px-0" style={{ color: "#FFCD67", fontSize: 40 }} />
                             <Typography variant="body1" className={classes.title}>
                                 Vision
