@@ -27,7 +27,9 @@ import Accomplishments from "../accomplishment/accomplishment";
 import Contact from "../Contact/Contact";
 import About from "../About/About";
 import Footer from "../footer/footer";
-import { Link, animateScroll as scroll } from 'react-scroll';
+import { Link } from 'react-scroll';
+import Mobilemenu from "../Mobilemenu"
+
 import WhyChooseUs from "../WhyChooseUs"
 import OurServices from "../OurServices"
 
@@ -62,6 +64,30 @@ const useStyles = makeStyles((theme) => ({
       paddingBottom: theme.spacing(2),
     },
   },
+  componentcontainer2: {
+    marginLeft: theme.spacing(20),
+    marginRight: theme.spacing(13),
+    paddingTop: theme.spacing(6),
+    paddingBottom: theme.spacing(6),
+    [theme.breakpoints.down("md")]: {
+     marginLeft: theme.spacing(10),
+      marginRight: theme.spacing(10),
+      paddingTop: theme.spacing(4),
+      paddingBottom: theme.spacing(2),
+    },
+    [theme.breakpoints.down("sm")]: {
+      marginLeft: theme.spacing(1),
+      marginRight: theme.spacing(2),
+      paddingTop: theme.spacing(4),
+      paddingBottom: theme.spacing(2),
+    },
+    [theme.breakpoints.down("xs")]: {
+      marginLeft: theme.spacing(4),
+      marginRight: theme.spacing(4),
+      paddingTop: theme.spacing(4),
+      paddingBottom: theme.spacing(2),
+    },
+  },
   componentcontainer1:{
     marginLeft: theme.spacing(20),
     marginRight: theme.spacing(20),
@@ -80,7 +106,7 @@ const useStyles = makeStyles((theme) => ({
     background:theme.palette.secondary.light,
   },
   link:{
-    color:"theme.palette.common.text",
+    color:theme.palette.common.text,
     textDecoration:"none",
     textTransform:"capitalize",
     
@@ -98,11 +124,27 @@ const useStyles = makeStyles((theme) => ({
       
 		},
 	},
+<<<<<<< Updated upstream
   contactus:{
     '&:hover':{
       background:theme.palette.secondary.main,
       color:'#FFF'
+  }
+},
+=======
+>>>>>>> Stashed changes
+  sectionMobile: {
+    display: 'flex',
+    [theme.breakpoints.up('sm')]: {
+      display: 'none',
+    },
   },
+  sectionDesktop: {
+    display: 'none',
+    //width: "80%",
+    [theme.breakpoints.up('sm')]: {
+      display: 'flex',
+    },
   },
 }));
 
@@ -204,6 +246,7 @@ function App(props) {
 
               <Grid item xs={5}>
                 <Grid
+                className={classes.sectionDesktop}
                   container
                   direction="row"
                   justify="space-evenly"
@@ -215,7 +258,8 @@ function App(props) {
                 </Grid>
               </Grid>
 
-              <Grid item xs={4}>
+              <Grid item xs={4}
+              className={classes.sectionDesktop}>
                 <Grid
                   container
                   direction="row"
@@ -241,6 +285,9 @@ function App(props) {
                 </Grid>
               </Grid>
             </Grid>
+            <div className={classes.sectionMobile}>
+            < Mobilemenu darkMode={darkMode} setDarkMode={setDarkMode} />
+          </div>
           </Toolbar>
         </AppBar>
       </HideOnScroll>
@@ -248,14 +295,24 @@ function App(props) {
       <div  style={{ width: '100%' }}>
         <Box  style={{ width: '100%' }}>
           <Paper style={{marginTop:-20}}> <Box className={classes.componentcontainer} id="home"><Hero/></Box></Paper>
-          <Box className={classes.componentcontainer}><WhyChooseUs/></Box>
-          <Box className={classes.componentcontainer} id="ourservices"><OurServices/></Box>
-          <Box className={classes.componentcontainer}><Team /></Box> 
+          <Box className={classes.componentcontainer2}><WhyChooseUs/></Box>
+<<<<<<< Updated upstream
+          <Box className={classes.componentcontainer} id="ourservices"><OurServices/></Box>  
            <Box className={classes.componentcontainer} id="aboutus"><About/></Box> 
+           <Box className={classes.componentcontainer}><Team /></Box> 
            <Paper style={{marginTop:-20}} elevation={0} className={classes.papers}> <Box className={classes.componentcontainer}><Praises/></Box></Paper>
            <Box className={classes.componentcontainer1}><Accomplishments/></Box>
           <Box className={classes.componentcontainer} id="contactus"><Contact/></Box> 
            <Paper style={{marginTop:-20}}><Box className={classes.componentcontainer}><Footer/></Box> </Paper>
+=======
+          <Box className={classes.componentcontainer} id="ourservices"><OurServices/></Box>
+          <Box className={classes.componentcontainer}><Team /></Box>
+          <Box className={classes.componentcontainer} id="aboutus"><About/></Box>
+          <Paper style={{marginTop:-20}} elevation={0} className={classes.papers}> <Box className={classes.componentcontainer}><Praises/></Box></Paper>
+          <Box className={classes.componentcontainer1}><Accomplishments/></Box>
+          <Box className={classes.componentcontainer} id="contactus"><Contact/></Box>
+          <Paper style={{marginTop:-20}}><Box className={classes.componentcontainer}><Footer/></Box> </Paper>
+>>>>>>> Stashed changes
         </Box>
       </div>
       <ScrollTop {...props}>
