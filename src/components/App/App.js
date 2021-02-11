@@ -124,15 +124,12 @@ const useStyles = makeStyles((theme) => ({
       
 		},
 	},
-<<<<<<< Updated upstream
   contactus:{
     '&:hover':{
       background:theme.palette.secondary.main,
       color:'#FFF'
   }
 },
-=======
->>>>>>> Stashed changes
   sectionMobile: {
     display: 'flex',
     [theme.breakpoints.up('sm')]: {
@@ -296,7 +293,6 @@ function App(props) {
         <Box  style={{ width: '100%' }}>
           <Paper style={{marginTop:-20}}> <Box className={classes.componentcontainer} id="home"><Hero/></Box></Paper>
           <Box className={classes.componentcontainer2}><WhyChooseUs/></Box>
-<<<<<<< Updated upstream
           <Box className={classes.componentcontainer} id="ourservices"><OurServices/></Box>  
            <Box className={classes.componentcontainer} id="aboutus"><About/></Box> 
            <Box className={classes.componentcontainer}><Team /></Box> 
@@ -304,15 +300,6 @@ function App(props) {
            <Box className={classes.componentcontainer1}><Accomplishments/></Box>
           <Box className={classes.componentcontainer} id="contactus"><Contact/></Box> 
            <Paper style={{marginTop:-20}}><Box className={classes.componentcontainer}><Footer/></Box> </Paper>
-=======
-          <Box className={classes.componentcontainer} id="ourservices"><OurServices/></Box>
-          <Box className={classes.componentcontainer}><Team /></Box>
-          <Box className={classes.componentcontainer} id="aboutus"><About/></Box>
-          <Paper style={{marginTop:-20}} elevation={0} className={classes.papers}> <Box className={classes.componentcontainer}><Praises/></Box></Paper>
-          <Box className={classes.componentcontainer1}><Accomplishments/></Box>
-          <Box className={classes.componentcontainer} id="contactus"><Contact/></Box>
-          <Paper style={{marginTop:-20}}><Box className={classes.componentcontainer}><Footer/></Box> </Paper>
->>>>>>> Stashed changes
         </Box>
       </div>
       <ScrollTop {...props}>
