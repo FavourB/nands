@@ -3,18 +3,72 @@ import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import { Card } from '@material-ui/core';
 import Typography from "@material-ui/core/Typography/Typography";
+import StarOutlineIcon from '@material-ui/icons/StarOutline';
+import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
+import PaymentIcon from '@material-ui/icons/Payment';
+import PersonalVideoIcon from '@material-ui/icons/PersonalVideo';
 
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
     },
     card: {
-        height: 273,
-        width: 190,
+        height: 230,
+        width: 230,
         backgroundColor: theme.palette.primary.dark,
         padding: theme.spacing(5, 3, 3),
-        borderRadius: "15px"
+        borderRadius: "15px",
+        "@media (max-width:1200px)": {
+            width: 210,
+            height: 250,
+            marginLeft: theme.spacing(2)
+
+        },
+        "@media (max-width:1158px)": {
+            width: 190,
+            height: 250,
+            //marginRight: theme.spacing(1)
+            marginLeft: theme.spacing(0)
+
+        },
+        "@media (max-width:960px)": {
+            width: 270,
+            height: 200,
+            marginBottom: theme.spacing(3),
+            padding: theme.spacing(4, 3, 3),
+        },
+        "@media (max-width:750px)": {
+            width: 210,
+            height: 230,
+            // marginBottom: theme.spacing(3),
+            // padding: theme.spacing(4, 3, 3),
+        },
+        "@media (max-width:599px)": {
+            width: 300,
+            height: 230,
+            // marginBottom: theme.spacing(3),
+            // padding: theme.spacing(4, 3, 3),
+        },
     },
+
+    contain: {
+        "@media (max-width:1200px)": {
+
+            paddingLeft: theme.spacing(3)
+
+        },
+        "@media (max-width:900px)": {
+
+            marginLeft: theme.spacing(5)
+
+        },
+        "@media (max-width:800px)": {
+
+            marginLeft: theme.spacing(3)
+
+        },
+    },
+
     control: {
         padding: theme.spacing(2),
     },
@@ -29,21 +83,26 @@ const WhyChooseUs = () => {
 
     return (
         <Grid>
-            <Grid container justify="center" className="ml-lg-5 ml-smOnly-5 ml-xsOnly-4">
-                <Grid justify="center" className="mb-5 mt-1 mr-smOnly-5 pr-smOnly-5">
+            <Grid container justify="center"
+            //className="ml-lg-5 ml-smOnly-5 ml-xsOnly-4 pr-md-4 pl-md-1"
+
+            >
+                <Grid justify="center" className="mb-5 mt-2 mr-smOnly-5 pr-smOnly-5 ">
                     WHY CHOOSE US
                 </Grid >
 
-                <Grid container justify="center" className={classes.root} direction="row">
+                <Grid container justify="center" direction="row" className={classes.contain}
+                //className="pl-smOnly-5 pl-lg-4"
+                >
 
                     {/* <Grid item justify="center">
                     <Grid container justify="center"  > */}
-                    <Grid item xs={7} sm={6} md={3} className=" mb-smOnly-5 pl-smOnly-5">
-                        <Card elevation={10} className={classes.card} >
-                            <img src={require("../assets/images/star.svg")}
-                                alt='start'
-                            //style={{ paddingRight: 30, paddingLeft: -20 }}
-                            />
+                    <Grid item xs={11} sm={5} md={3}
+                    //className=" mb-smOnly-5 pl-smOnly-5 pb-md-4 "
+                    >
+                        <Card elevation={8} className={classes.card} >
+
+                            <StarOutlineIcon classname="px-0" style={{ color: "#FFCD67", fontSize: 40 }} />
                             <Typography variant="body1" className={classes.title}>
                                 Quality
                             </Typography>
@@ -52,12 +111,11 @@ const WhyChooseUs = () => {
                            </Typography >
                         </Card>
                     </Grid>
-                    <Grid item xs={7} sm={6} md={3} className=" mb-smOnly-4 ">
-                        <Card elevation={10} className={classes.card}>
-                            <img src={require("../assets/images/star.svg")}
-                                alt='start'
-                            //style={{ width: '100%', paddingRight: 30, paddingLeft: -20 }}
-                            />
+                    <Grid item xs={11} sm={5} md={3}
+                    //className=" mb-smOnly-4 mr-xs-4"
+                    >
+                        <Card elevation={8} className={classes.card}>
+                            <CheckCircleOutlineIcon classname="px-0" style={{ color: "#FFCD67", fontSize: 40 }} />
                             <Typography variant="body1" className={classes.title}>
                                 Reliability
                             </Typography>
@@ -67,12 +125,11 @@ const WhyChooseUs = () => {
                            </Typography >
                         </Card>
                     </Grid>
-                    <Grid item xs={7} sm={6} md={3} className="pl-smOnly-5">
-                        <Card elevation={10} className={classes.card}>
-                            <img src={require("../assets/images/star.svg")}
-                                alt='start'
-                            // style={{width:'100%', paddingRight:30, paddingLeft:-20}}
-                            />
+                    <Grid item xs={11} sm={5} md={3}
+                    //className="pl-smOnly-5"
+                    >
+                        <Card elevation={8} className={classes.card}>
+                            <PaymentIcon classname="px-0" style={{ color: "#FFCD67", fontSize: 40 }} />
                             <Typography variant="body1" className={classes.title}>
                                 Cost-effective
                             </Typography>
@@ -82,12 +139,11 @@ const WhyChooseUs = () => {
                            </Typography >
                         </Card>
                     </Grid>
-                    <Grid item xs={7} sm={6} md={3} >
-                        <Card elevation={10} className={classes.card} >
-                            <img src={require("../assets/images/star.svg")}
-                                alt='start'
-                            // style={{width:'100%', paddingRight:30, paddingLeft:-20}}
-                            />
+                    <Grid item xs={11} sm={5} md={3}
+                    //className="pr-md-2"
+                    >
+                        <Card elevation={8} className={classes.card} >
+                            <PersonalVideoIcon classname="px-0" style={{ color: "#FFCD67", fontSize: 40 }} />
                             <Typography variant="body1" className={classes.title}>
                                 Vision
                             </Typography>
@@ -102,8 +158,8 @@ const WhyChooseUs = () => {
 
                 </Grid>
 
-            </Grid>
-        </Grid>
+            </Grid >
+        </Grid >
     );
 }
 
