@@ -11,18 +11,31 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function CustomTextfield({ label, name, required, multiline, rows }) {
+function CustomTextfield({
+  label,
+  name,
+  multiline,
+  rows,
+  error = null,
+  value,
+  helperText,
+  onChange,
+}) {
   const classes = useStyles();
   return (
     <div>
       <TextField
         color="secondary"
         className={classes.textfield}
+        error={error}
+        helperText={helperText}
+        onChange={onChange}
+        value={value}
+        autoComplete="false"
         id="outlined-basic"
-        label={label}
+        placeholder={label}
         name={name}
         variant="outlined"
-        required={required}
         margin="dense"
         fullWidth
         multiline={multiline}

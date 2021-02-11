@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Typography,
   Grid,
@@ -10,18 +10,22 @@ import {
 import EmailIcon from "@material-ui/icons/Email";
 import PhoneIphoneIcon from "@material-ui/icons/PhoneIphone";
 import CustomTextfield from "./CustomTextfield";
+import { Formik } from "formik";
+import * as Yup from "yup";
 
 const useStyles = makeStyles((theme) => ({
   contact_headline: {
     fontWeight: 700,
-    fontSize: "48px",
+    marginTop: 20,
     "@media (max-width: 880px)": {
-      marginTop: 40,
-      fontSize: "38px",
+      marginTop: 10,
     },
   },
   section2: {
-    marginTop: 70,
+    marginTop: 40,
+    "@media (max-width: 880px)": {
+      marginTop: 20,
+    },
   },
   grid1: {
     display: "flex",
@@ -30,7 +34,6 @@ const useStyles = makeStyles((theme) => ({
 
   getintouch: {
     fontWeight: 600,
-    fontSize: "36px",
   },
   border: {
     backgroundColor: "#F8B630",
@@ -39,6 +42,9 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: 3,
     marginBottom: 35,
     marginTop: 10,
+    "@media (max-width: 880px)": {
+      width: 100,
+    },
   },
   paragraph: {
     paddingRight: "80px",
@@ -68,7 +74,9 @@ const useStyles = makeStyles((theme) => ({
     padding: 50,
     borderRadius: 10,
     "@media (max-width: 1280px)": {
+      padding: 30,
       marginTop: 40,
+      marginBottom: 40,
     },
   },
   formtext: {
@@ -80,20 +88,28 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const encode = (data) => {
+  return Object.keys(data)
+    .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .join("&");
+};
+
 function Contact() {
+  const [success, setSuccess] = useState(false);
+  const [displayForm, setDisplayform] = useState(true);
   const classes = useStyles();
   return (
     <Grid container align="center">
       <Grid item xs={12}>
         <Typography variant="h6">CONTACT US</Typography>
-        <Typography className={classes.contact_headline} variant="h2">
+        <Typography className={classes.contact_headline} variant="h3">
           Have a Project for us?
         </Typography>
       </Grid>
 
       <Grid container className={classes.section2}>
         <Grid className={classes.grid1} container item xs={12} lg={6}>
-          <Typography className={classes.getintouch} align="left" variant="h3">
+          <Typography className={classes.getintouch} align="left" variant="h4">
             Get In Touch
           </Typography>
           <div className={classes.border}></div>
@@ -113,9 +129,9 @@ function Contact() {
             <EmailIcon />
             <Link
               className={classes.con_email}
-              href="mailto:nandstech@gmail.com"
+              href="mailto:nandsteq@gmail.com"
             >
-              nandstech@gmail.com
+              nandsteq@gmail.com
             </Link>
           </div>
           <div className={classes.list}>
@@ -125,8 +141,8 @@ function Contact() {
             </Link>
             <span>
               {" "}
-              <Link className={classes.con_email} href="tel:+2348120988862">
-                +2348176437969
+              <Link className={classes.con_email} href="tel:+2348086831929">
+                +2348086831929
               </Link>{" "}
             </span>
           </div>
@@ -142,28 +158,113 @@ function Contact() {
             >
               Tell Us About It
             </Typography>
-            <form action="POST" data-netlify="true">
-              <CustomTextfield name="name" label="Name" />
-              <CustomTextfield name="email" label="Email" required />
-              <CustomTextfield name="subject" label="Subject" />
-              <CustomTextfield
-                name="message"
-                label="Message"
-                multiline
-                rows={4}
-              />
-              <div data-netlify-recaptcha="true"></div>
 
-              <Button
-                fullWidth
-                color="secondary"
-                size="large"
-                variant="contained"
-                className={classes.submitBtn}
+            {success && (
+              <p
+                style={{
+                  color: "green",
+                  fontWeight: 500,
+                  textAlign: "left",
+                  marginTop: "20px",
+                }}
               >
-                Send Message
-              </Button>
-            </form>
+                Successfully submitted form! We would get back to you shortly
+              </p>
+            )}
+
+            {/* {displayForm && ( */}
+            <Formik
+              initialValues={{
+                name: "",
+                email: "",
+                subject: "",
+                message: "",
+              }}
+              onSubmit={(values, { setSubmitting, resetForm }) => {
+                setSubmitting(true);
+                fetch("/", {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/x-www-form-urlencoded",
+                  },
+                  body: encode({
+                    "form-name": "Nands Tech Contact Form",
+                    ...values,
+                  }),
+                })
+                  .then(() => {
+                    setSuccess(true);
+                    // setDisplayform(false);
+                    resetForm({});
+                  })
+                  .catch((error) => alert(error));
+              }}
+              validationSchema={Yup.object().shape({
+                email: Yup.string()
+                  .email("Invalid Email")
+                  .required("Email is required"),
+              })}
+            >
+              {(props) => {
+                const {
+                  values,
+                  touched,
+                  errors,
+                  isValid,
+                  dirty,
+                  handleChange,
+                  handleSubmit,
+                } = props;
+                return (
+                  <form onSubmit={handleSubmit}>
+                    <CustomTextfield
+                      name="name"
+                      label="Name"
+                      value={values.name}
+                      onChange={handleChange}
+                    />
+                    <CustomTextfield
+                      name="email"
+                      value={values.email}
+                      label="Email"
+                      error={touched.email && errors.email}
+                      helperText={
+                        errors.email && touched.email ? errors.email : null
+                      }
+                      onChange={handleChange}
+                    />
+                    <CustomTextfield
+                      name="subject"
+                      label="Subject"
+                      value={values.subject}
+                      onChange={handleChange}
+                    />
+                    <CustomTextfield
+                      value={values.message}
+                      onChange={handleChange}
+                      name="message"
+                      label="Message"
+                      multiline
+                      rows={4}
+                    />
+                    <div data-netlify-recaptcha="true"></div>
+
+                    <Button
+                      type="submit"
+                      fullWidth
+                      color="secondary"
+                      size="large"
+                      variant="contained"
+                      className={classes.submitBtn}
+                      disabled={!(dirty && isValid)}
+                    >
+                      Send Message
+                    </Button>
+                  </form>
+                );
+              }}
+            </Formik>
+            {/* )} */}
           </Paper>
         </Grid>
       </Grid>
