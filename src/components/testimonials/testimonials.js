@@ -21,34 +21,34 @@ const tutorialSteps = [
     company:'SaiTech'
   },
   {
-    praise: 'Amazing work, I would recommend Philip Philip to everyone. His skills, communication, availability, and quality of work are excellent. Amazing work, I would recommend Philip Philip to everyone. His skills, communication, availability, and quality of work are excellent.',
+    praise: 'Anastestia is very flexible and a good listener. I appreciate working with her and most probably, I am going to hire her for all of my future projects. Her portfolio may not have many projects but she is experienced enough to bring any project up from the ground.',
     imgPath:'https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=400&h=250&q=60',
-    name:'ANASTESTIA ONYEKABA',
-    company:'SaiTech'
+    name:'Ahmed Osman',
+    company:'evntc'
   },
   {
-    praise: 'Amazing work, I would recommend Philip Philip to everyone. His skills, communication, availability, and quality of work are excellent.',
+    praise: 'I needed someone to do a quick, modern and great website and I turned to Zino based on a friends recommendation. The result - a really cool and professional website that gives us all we wany.',
     imgPath:'https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=400&h=250&q=60',
-    name:'IVAN POPOV',
-    company:'SaiTech'
+    name:'Kolawole OLANIPEKUN',
+    company:'TechReyal'
   },
   {
-    praise: 'Amazing work, I would recommend Philip Philip to everyone. His skills, communication, availability, and quality of work are excellent.',
+    praise: 'Anastestia was great at designing my new app. She did all the screens quickly and helpfully. Designs were better than I expected. She has a true eye for design.',
     imgPath:'https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=400&h=250&q=60',
-    name:'IVAN POPOV',
-    company:'SaiTech'
+    name:'Admin',
+    company:'Lentrica SoftWare'
   },
   {
-    praise: 'Amazing work, I would recommend Philip Philip to everyone. His skills, communication, availability, and quality of work are excellent.',
+    praise: 'Due to my high taste, i found it difficult settling with web developers even when I needed a website urgently. But when I gave it to zino, he blew my mind.',
     imgPath:'https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=400&h=250&q=60',
-    name:'IVAN POPOV',
-    company:'SaiTech'
+    name:'EMMANUEL EDEGBO',
+    company:'DotsResourcing'
   },
   {
-    praise: 'Amazing work, I would recommend Philip Philip to everyone. His skills, communication, availability, and quality of work are excellent.',
+    praise: 'Philip is a strong project lead that is well organized and communicates clearly. N&S Tech has proven to be highly capable and I am pleased to be working with them. They have met deadlines and are attentive to the project needs,',
     imgPath:'https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=400&h=250&q=60',
-    name:'IVAN POPOV',
-    company:'SaiTech'
+    name:'SAM WRIGHT',
+    company:'Quin.Group'
   },
 
 ];
@@ -73,7 +73,7 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
   },
   paper1:{
-    background:theme.palette.primary.main,
+    background:theme.palette.background.default,
     paddingLeft:theme.spacing(10),
     paddingRight:theme.spacing(10),
     paddingTop:theme.spacing(2),
@@ -86,7 +86,11 @@ const useStyles = makeStyles((theme) => ({
   icon:{
     transform:'rotate(180deg)',
     color:theme.palette.secondary.light,
-    fontSize: 70,
+    fontSize: 90,
+    marginLeft:-20,
+  },
+  stepper:{
+    background:theme.palette.background.default,
   }
 }));
 
@@ -100,10 +104,6 @@ function Praises() {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
   };
 
-  const handleBack = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep - 1);
-  };
-
   const handleStepChange = (step) => {
     setActiveStep(step);
   };
@@ -114,7 +114,7 @@ function Praises() {
              <Typography style={{textAlign:'center'}} variant='caption'>TESTIMONIALS</Typography>
         </Grid>
         <Grid container direction="row" justify="center" alignItems="center" style={{marginBottom:50}}>
-             <Typography style={{textAlign:'center'}} variant='h3'>What our clients are saying</Typography>
+             <Typography style={{textAlign:'center'}} variant='h2'>What our clients are saying</Typography>
         </Grid>
      
         <Paper elevation={0} className={classes.paper1}>
@@ -138,37 +138,24 @@ function Praises() {
                 <FormatQuoteIcon className={classes.icon}/>
           </Grid>
           <Grid item>
-              {/* <Paper square elevation={0} className={classes.header}> */}
-        <Typography>{tutorialSteps[activeStep].praise}</Typography>
-      {/* </Paper> */}
+            <Typography>{tutorialSteps[activeStep].praise}</Typography>
           </Grid>
           <Grid item>
-          <Typography variant="h6" color="secondary" style={{marginTop:50,marginBottom:10}}>{tutorialSteps[activeStep].name}</Typography>
+            <Typography variant="h6" color="secondary" style={{marginTop:30,marginBottom:-5}}>{tutorialSteps[activeStep].name}</Typography>
           </Grid>
           <Grid item>
-          <Typography variant="caption">{tutorialSteps[activeStep].company}</Typography>
+            <Typography variant="caption" style={{opacity:0.6}}>{tutorialSteps[activeStep].company}</Typography>
           </Grid>
           <Grid item>
               <MobileStepper
-        // steps={maxSteps}
+              className={classes.stepper}
         position="static"
-        // variant="dots"
-        // activeStep={activeStep}
         nextButton={
           <Button size="small" onClick={handleNext} disabled={activeStep === maxSteps - 1}>
             Next
             {theme.direction === 'rtl' ? <KeyboardArrowLeft /> : <KeyboardArrowRight />}
           </Button>
-        }
-        // backButton={
-        //   <Button size="small" onClick={handleBack} disabled={activeStep === 0}>
-        //     {theme.direction === 'rtl' ? <KeyboardArrowRight /> : <KeyboardArrowLeft />}
-        //     Back
-        //   </Button>
-        // }
-      >
-          
-      </MobileStepper>
+        }/>  
           </Grid>
     </Grid> 
       </Paper>

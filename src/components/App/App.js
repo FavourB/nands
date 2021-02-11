@@ -28,8 +28,6 @@ import Contact from "../Contact/Contact";
 import About from "../About/About";
 import Footer from "../footer/footer";
 import { Link, animateScroll as scroll } from 'react-scroll';
-
-
 import WhyChooseUs from "../WhyChooseUs"
 import OurServices from "../OurServices"
 
@@ -100,6 +98,12 @@ const useStyles = makeStyles((theme) => ({
       
 		},
 	},
+  contactus:{
+    '&:hover':{
+      background:theme.palette.secondary.main,
+      color:'#FFF'
+  },
+  },
 }));
 
 function HideOnScroll(props) {
@@ -219,8 +223,8 @@ function App(props) {
                   alignItems="center"
                 >
                   <Grid item xs={4}>
-                    <Button variant="outlined" color="secondary">
-                    <Link to="aboutus" spy={true} smooth ={true} offset ={-300} duration={500} >Contact us</Link>
+                    <Button variant="outlined" color="secondary" className={classes.contactus} size='small' disableElevation>
+                    <Link to="contactus" spy={true} smooth ={true} offset ={-300} duration={500} >Contact us</Link>
                     </Button>
                   </Grid>
                   <Grid item xs={4}>
@@ -246,12 +250,12 @@ function App(props) {
           <Paper style={{marginTop:-20}}> <Box className={classes.componentcontainer} id="home"><Hero/></Box></Paper>
           <Box className={classes.componentcontainer}><WhyChooseUs/></Box>
           <Box className={classes.componentcontainer} id="ourservices"><OurServices/></Box>
-          <Box className={classes.componentcontainer}><Team /></Box>
-          <Box className={classes.componentcontainer} id="aboutus"><About/></Box>
-          <Paper style={{marginTop:-20}} elevation={0} className={classes.papers}> <Box className={classes.componentcontainer}><Praises/></Box></Paper>
-          <Box className={classes.componentcontainer1}><Accomplishments/></Box>
-          <Box className={classes.componentcontainer} id="contactus"><Contact/></Box>
-          <Paper style={{marginTop:-20}}><Box className={classes.componentcontainer}><Footer/></Box> </Paper>
+          <Box className={classes.componentcontainer}><Team /></Box> 
+           <Box className={classes.componentcontainer} id="aboutus"><About/></Box> 
+           <Paper style={{marginTop:-20}} elevation={0} className={classes.papers}> <Box className={classes.componentcontainer}><Praises/></Box></Paper>
+           <Box className={classes.componentcontainer1}><Accomplishments/></Box>
+          <Box className={classes.componentcontainer} id="contactus"><Contact/></Box> 
+           <Paper style={{marginTop:-20}}><Box className={classes.componentcontainer}><Footer/></Box> </Paper>
         </Box>
       </div>
       <ScrollTop {...props}>

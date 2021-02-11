@@ -38,12 +38,12 @@ export default class Hero extends Component {
                         
                     </Typography>
                 </span>
-                {'>'}
+                {'>'} ?
               </Typography>
               <Typography variant='h6' style={{color:'#FFFFFF'}} >
                 We are a team of experts committed to bringing your dreams to life. 
               </Typography><br/>
-              <StyledButton variant='contained' color='secondary' > Learn More</StyledButton>
+              <StyledButton variant='contained' color='secondary' size='large'> Learn More</StyledButton>
             </Grid>
             <Grid item xs={11} sm={4}>
             <img src= {require("../../assets/images/hero.gif")} alt='light' style={{width:'100%', paddingRight:30, paddingLeft:-20}}/>
