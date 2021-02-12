@@ -5,9 +5,9 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
     card: {
-        height: 303,
-        width: 350,
-        marginTop: theme.spacing(4),
+        // height: 303,
+        // width: 350,
+        marginTop: theme.spacing(7),
         paddingLeft: theme.spacing(10),
 
         "@media (max-width:960px)": {
@@ -32,24 +32,30 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         flexDirection: "row",
         justifyContent: "space-between",
-    [theme.breakpoints.down("sm")]: {
-        flexDirection: "column",
-        justifyContent: "center",
-    },
+        [theme.breakpoints.down("sm")]: {
+            //flexDirection: "column",
+            justifyContent: "center",
+        },
+        [theme.breakpoints.down("xs")]: {
+            flexDirection: "column",
+            justifyContent: "center",
+
+        },
     },
     grid2: {
         alignContent: "center",
         display: 'flex',
         flexDirection: "row",
         justifyContent: "space-between",
-    [theme.breakpoints.down("sm")]: {
-        justifyContent: "center",
-    },
-    "@media (max-width:660px)": {
-        flexDirection: 'column-reverse',
+        [theme.breakpoints.down("sm")]: {
+            justifyContent: "center",
+        },
+        "@media (max-width:660px)": {
+            flexDirection: 'column-reverse',
 
-    },
-    
+
+        },
+
     },
     title: {
         padding: theme.spacing(4, 0),
@@ -65,48 +71,51 @@ const useStyles = makeStyles((theme) => ({
 
 const OurServices = () => {
     const classes = useStyles();
-    
+
     return (
         <div>
 
-<Grid container direction="row" justify="center" alignItems="center" style={{marginBottom:10}}>
-             <Typography style={{textAlign:'center'}} variant='caption'>OUR SERVICES</Typography>
-                </Grid>
-           
-                <Grid container  className={classes.grid2}>
-                    <Grid item xs={12} lg={5} sm={5} md={5} >
-                        <div className={classes.card}>
-                            <Typography variant="h4" className="mb-4">
-                                Web Development
+            <Grid container direction="row" justify="center" alignItems="center" style={{ marginBottom: 10 }} data-aos="fade-up"
+                data-aos-anchor-placement="center-bottom" data-aos-duration="3000">
+                <Typography style={{ textAlign: 'center' }} variant='caption'>OUR SERVICES</Typography>
+            </Grid>
+
+            <Grid container className={classes.grid2} data-aos="fade-up"
+                data-aos-anchor-placement="center-bottom" data-aos-duration="2000">
+                <Grid item xs={12} lg={5} sm={5} md={5} className="pt-lg-4">
+                    <div className={classes.card}>
+                        <Typography variant="h4" className="mb-4">
+                            Web Development
                       </Typography>
-                            <Typography variant="body 2" >
-                                Responsive web development, including front-end and back-end services, for all website variations; e-commerce, video-conferencing, etc.
+                        <Typography variant="body 2" >
+                            Responsive web development, including front-end and back-end services, for all website variations; e-commerce, video-conferencing, etc.
                       </Typography>
 
-                        </div>
-                    </Grid>
-                    <Grid item xs={12} lg={5} sm={6} md={5} className=" pl-lg-2">
-                        <img src={require("../assets/images/webdev1.gif")} className={classes.image}
-                            alt='start'
-                            style={{ width: '100%', paddingLeft: '20px' }}
-                        />
-                    </Grid>
+                    </div>
                 </Grid>
-               
+                <Grid item xs={12} lg={5} sm={6} md={5} className=" pl-lg-2">
+                    <img src={require("../assets/images/webdev1.gif")} className={classes.image}
+                        alt='start'
+                        style={{ width: '80%', paddingLeft: '20px', paddingTop: 0 }}
+                    />
+                </Grid>
+            </Grid>
 
-            <Grid container className={classes.grid}>
+
+            <Grid container className={classes.grid} data-aos="fade-up"
+                data-aos-anchor-placement="center-bottom" data-aos-duration="2000">
 
 
-                <Grid item xs={12} sm={6} lg={5} md={5} className=" pl-lg-2">
+                <Grid item xs={12} sm={6} lg={5} md={5} className=" pl-lg-2 pl-md-4 pt-md-5">
                     <img src={require("../assets/images/mobile.gif")} className={classes.image}
                         alt='start'
-                        style={{ width: '80%', paddingLeft: '20px' }}
+                        style={{ width: '60%', paddingLeft: '20px' }}
                     />
 
                 </Grid>
                 <Grid item xs={8} sm={6} lg={5} md={5} className="pl-md-0 pl-lg-0">
                     <div className={classes.card}>
-                        <Typography variant="h4" className="mb-4">
+                        <Typography variant="h4" className="mb-4 mt-lg-4">
                             Mobile App Development
                         </Typography>
                         <Typography variant="body 2" >
@@ -117,10 +126,11 @@ const OurServices = () => {
                 </Grid>
 
             </Grid>
-            <Grid container className={classes.grid2}>
+            <Grid container className={classes.grid2} data-aos="fade-up"
+                data-aos-anchor-placement="center-bottom" data-aos-duration="2000">
 
 
-                <Grid justfy="center" item xs={8} lg={5} sm={6} md={5} className=" pl-lg-0">
+                <Grid item xs={8} lg={5} sm={6} md={5} className="pt-lg-4 pl-lg-0">
                     <div className={classes.card}>
                         <Typography variant="h4" className="mb-4">
                             Product Design
@@ -134,17 +144,18 @@ const OurServices = () => {
                 <Grid item xs={12} lg={5} sm={6} md={5} className=" pl-lg-0">
                     <img src={require("../assets/images/product design.gif")} className={classes.image}
                         alt='start'
-                        style={{ width: '80%', paddingLeft: '20px' }}
+                        style={{ width: '70%', paddingLeft: '20px' }}
                     />
                 </Grid>
 
             </Grid>
-            <Grid container className={classes.grid}>
+            <Grid container className={classes.grid} data-aos="fade-up"
+                data-aos-anchor-placement="center-bottom" data-aos-duration="2000">
 
-                <Grid item xs={12} lg={5} sm={6} md={5} className=" pl-lg-5">
+                <Grid item xs={12} lg={5} sm={6} md={5} className=" pl-lg-5 pl-md-5 pt-md-5 pl-xs-5">
                     <img src={require("../assets/images/video.gif")} className={classes.image}
                         alt='start'
-                        style={{ width: '90%', paddingLeft: '20px' }}
+                        style={{ width: '70%', paddingLeft: '20px' }}
                     />
 
                 </Grid>

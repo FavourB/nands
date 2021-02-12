@@ -6,6 +6,7 @@
     "@material-ui/icons": "^4.11.2",
     "@material-ui/lab": "4.0.0-alpha.54",
     "@material-ui/styles": "^4.10.0",
+    "aos": "^2.3.4",
     "bootstrap": "^4.6.0",
     "formik": "^2.2.6",
     "ityped": "^1.0.3",

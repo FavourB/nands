@@ -1,4 +1,6 @@
-import React from "react";
+import React, {useEffect} from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core";
 import Paper from "@material-ui/core/Paper";
@@ -10,11 +12,11 @@ import Switch from "@material-ui/core/Switch";
 import PropTypes from "prop-types";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
+//import Typography from "@material-ui/core/Typography";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import useScrollTrigger from "@material-ui/core/useScrollTrigger";
 import Box from "@material-ui/core/Box";
-import Container from "@material-ui/core/Container";
+//import Container from "@material-ui/core/Container";
 import Slide from "@material-ui/core/Slide";
 import Button from "@material-ui/core/Button/Button";
 import Fab from "@material-ui/core/Fab";
@@ -28,7 +30,7 @@ import About from "../About/About";
 import Footer from "../footer/footer";
 import { Link } from 'react-scroll';
 import Mobilemenu from "../Mobilemenu"
-import Loader from './loader'
+//import Loader from './loader'
 import WhyChooseUs from "../WhyChooseUs"
 import OurServices from "../OurServices"
 import OurTeam from "../team/ourteam";
@@ -192,14 +194,14 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   logo:{
-    width:'120%',
+    width:'90%',
     padding:theme.spacing(0),
     // [theme.breakpoints.down("xs")]: {
     //   width:'200%'
     // },
     [theme.breakpoints.up("md")]: {
       padding:theme.spacing(1),
-      width:'80%'
+      width:'70%'
     },
     // [theme.breakpoints.down('sm')]: {
     //   width:'150%'
@@ -281,8 +283,13 @@ ScrollTop.propTypes = {
 function App(props) {
   const { darkMode, setDarkMode } = props;
   const classes = useStyles();
-  const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.down("xs"));
+  //const theme = useTheme();
+  //const matches = useMediaQuery(theme.breakpoints.down("xs"));
+  useEffect(() => {
+    AOS.init({
+      duration : 2000
+    });
+  }, []);
   // if (this.state.loading) return <Loader/>;
   return (
     <div className={classes.root}>

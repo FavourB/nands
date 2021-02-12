@@ -85,9 +85,9 @@ const useStyles = makeStyles((theme) => ({
   submitBtn: {
     marginTop: "20px",
     padding: "10px 0px",
-    fontWeight:700,
-     color:'#FFF',
-    
+    fontWeight: 700,
+    color: '#FFF',
+
   },
 }));
 
@@ -102,10 +102,11 @@ function Contact() {
   //const [displayForm, setDisplayform] = useState(true);
   const classes = useStyles();
   return (
-    <Grid container align="center">
+    <Grid container align="center" data-aos="fade-up"
+      data-aos-anchor-placement="center-bottom" data-aos-duration="2000">
       <Grid item xs={12}>
-      <Grid container direction="row" justify="center" alignItems="center" style={{marginBottom:10}}>
-             <Typography style={{textAlign:'center'}} variant='caption'>CONTACT US</Typography>
+        <Grid container direction="row" justify="center" alignItems="center" style={{ marginBottom: 10 }}>
+          <Typography style={{ textAlign: 'center' }} variant='caption'>CONTACT US</Typography>
         </Grid>
         <Typography className={classes.contact_headline} variant="h2">
           Have a Project for us?
@@ -208,11 +209,11 @@ function Contact() {
                 email: Yup.string("Enter your email")
                   .email("Email should be valid")
                   .required("Required"),
-                  name: Yup.string("Enter your name")
+                name: Yup.string("Enter your name")
                   .required("Required"),
-                 subject: Yup.string("Enter your subject")
+                subject: Yup.string("Enter your subject")
                   .required("Required"),
-                 message: Yup.string("Enter your  message")
+                message: Yup.string("Enter your  message")
                   .required("Required"),
               })}
             >
@@ -284,7 +285,7 @@ function Contact() {
                       size="large"
                       variant="contained"
                       className={classes.submitBtn}
-                      //disabled={!(dirty && isValid)}
+                    //disabled={!(dirty && isValid)}
                     >
                       Send Message
                     </Button>

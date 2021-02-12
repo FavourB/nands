@@ -59,12 +59,12 @@ export default function Footer() {
           <Grid container direction="row" justify="space-between" alignItems="flex-start" spacing={3}>
           <Grid item xs={12} sm={4}>
             <Grid container direction="column" justify="flex-start" alignItems="flex-start">
-                <Grid item xs={9} sm={9}>
+                <Grid item xs={9} sm={9} className="pl-3">
                     <img src= {require("../../assets/images/logowhite.png")} alt='light' style={{width:'15%', marginBottom:20}}/>
                 </Grid>
                 <Grid item xs={12} sm={10}>
                   <Typography variant='h6' style={{color:'#FFFFFF' , marginLeft:12}} >
-                    We are a team of experts committed to bring your dreams to life. 
+                    We are a team of experts committed to bringing your dreams to life. 
                   </Typography>
                 </Grid>
                
@@ -79,7 +79,7 @@ export default function Footer() {
                 </Grid>
                 <Grid item xs={12} sm={10}>
                   <Typography variant='h6' style={{color:'#FFFFFF', marginLeft:12}} >
-                    N&S Tech seeks to provide solutions to high-impact problems with technology;  putting together highly talented engineering teams quickly, with the needed skills, to work as part of a remote, high functioning, distributed team.
+                    N&S Tech seeks to provide solutions to high-impact problems with technology;  putting together highly talented teams quickly, to work as part of a remote, high functioning, distributed team.
                   </Typography>
                 </Grid>
               </Grid>

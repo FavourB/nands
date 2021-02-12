@@ -24,7 +24,7 @@ export default function Accomplishments() {
     <div className={classes.root}>
       <Grid container>
         <Grid item xs={12}>
-          <Paper className={classes.paper} elevation={10}>
+          <Paper className={classes.paper} elevation={7}>
             <Grid container direction="row" justify="space-around" alignItems="center">
                 <Grid item xs={3} sm={3}>
                     <img src= {require("../../assets/images/cup.gif")} alt='light' style={{width:'50%'}}/>
