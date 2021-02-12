@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Grid from "@material-ui/core/Grid";
@@ -23,24 +23,37 @@ import Fab from "@material-ui/core/Fab";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import Zoom from "@material-ui/core/Zoom";
 import Hero from "../hero/hero";
-import Praises from "../testimonials/testimonials"
+import Praises from "../testimonials/testimonials";
 import Accomplishments from "../accomplishment/accomplishment";
 import Contact from "../Contact/Contact";
 import About from "../About/About";
 import Footer from "../footer/footer";
-import { Link } from 'react-scroll';
-import Mobilemenu from "../Mobilemenu"
+import { Link } from "react-scroll";
+import Mobilemenu from "../Mobilemenu";
 //import Loader from './loader'
-import WhyChooseUs from "../WhyChooseUs"
-import OurServices from "../OurServices"
+import WhyChooseUs from "../WhyChooseUs";
+import OurServices from "../OurServices";
 import OurTeam from "../team/ourteam";
-
 
 const useStyles = makeStyles((theme) => ({
   root: {
     height: "100vh",
     [theme.breakpoints.down("xs")]: {
       paddingTop: theme.spacing(2),
+    },
+  },
+  loader__image__container: {
+    backgroundColor: "#fff",
+    height: "100%",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  loader__image: {
+    width: "45%",
+    objectFit: "contain",
+    "@media (max-width: 600px)": {
+      width: "75%",
     },
   },
   componentcontainer: {
@@ -89,7 +102,7 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: theme.spacing(6),
     paddingBottom: theme.spacing(6),
     [theme.breakpoints.down("md")]: {
-     marginLeft: theme.spacing(10),
+      marginLeft: theme.spacing(10),
       marginRight: theme.spacing(10),
       paddingTop: theme.spacing(4),
       paddingBottom: theme.spacing(2),
@@ -107,7 +120,7 @@ const useStyles = makeStyles((theme) => ({
       paddingBottom: theme.spacing(2),
     },
   },
-  componentcontainer1:{
+  componentcontainer1: {
     marginLeft: theme.spacing(20),
     marginRight: theme.spacing(20),
     marginTop: -90,
@@ -135,73 +148,70 @@ const useStyles = makeStyles((theme) => ({
       paddingBottom: theme.spacing(2),
     },
   },
-  componentcontainer3:{
-    marginTop:-220, 
-    paddingTop:150,
+  componentcontainer3: {
+    marginTop: -220,
+    paddingTop: 150,
     [theme.breakpoints.down("xs")]: {
-      marginTop:-150, 
-      paddingTop:150,
-    [theme.breakpoints.down("md")]: {
-      marginTop:-220, 
-      paddingTop:150,
-    },
-    [theme.breakpoints.down("sm")]: {
-      marginTop:-150, 
-      paddingTop:150,
+      marginTop: -150,
+      paddingTop: 150,
+      [theme.breakpoints.down("md")]: {
+        marginTop: -220,
+        paddingTop: 150,
+      },
+      [theme.breakpoints.down("sm")]: {
+        marginTop: -150,
+        paddingTop: 150,
+      },
     },
   },
-},
-  papers:{
-    background:theme.palette.secondary.light,
+  papers: {
+    background: theme.palette.secondary.light,
   },
-  link:{
-    color:theme.palette.common.text,
-    textDecoration:"none",
-    textTransform:"capitalize",
-    
-	
-		'&.active':{
-			color:theme.palette.secondary.main,
-			// paddingBottom:20,
-			// borderBottom:'2px solid #1D1974',
-			textDecoration:"none",
-     
-		},
-		'&:hover':{
-			color:theme.palette.secondary.main,
-      textDecoration:"none",
-      background:"none",
-      
-		},
-	},
-  contactus:{
-    '&:hover':{
-      background:theme.palette.secondary.main,
-      color:'#FFF'
-  }
-},
+  link: {
+    color: theme.palette.common.text,
+    textDecoration: "none",
+    textTransform: "capitalize",
+
+    "&.active": {
+      color: theme.palette.secondary.main,
+      // paddingBottom:20,
+      // borderBottom:'2px solid #1D1974',
+      textDecoration: "none",
+    },
+    "&:hover": {
+      color: theme.palette.secondary.main,
+      textDecoration: "none",
+      background: "none",
+    },
+  },
+  contactus: {
+    "&:hover": {
+      background: theme.palette.secondary.main,
+      color: "#FFF",
+    },
+  },
   sectionMobile: {
-    display: 'flex',
-    [theme.breakpoints.up('md')]: {
-      display: 'none',
+    display: "flex",
+    [theme.breakpoints.up("md")]: {
+      display: "none",
     },
   },
   sectionDesktop: {
-    display: 'none',
+    display: "none",
     //width: "80%",
-    [theme.breakpoints.up('md')]: {
-      display: 'flex',
+    [theme.breakpoints.up("md")]: {
+      display: "flex",
     },
   },
-  logo:{
-    width:'90%',
-    padding:theme.spacing(0),
+  logo: {
+    width: "90%",
+    padding: theme.spacing(0),
     // [theme.breakpoints.down("xs")]: {
     //   width:'200%'
     // },
     [theme.breakpoints.up("md")]: {
-      padding:theme.spacing(1),
-      width:'70%'
+      padding: theme.spacing(1),
+      width: "70%",
     },
     // [theme.breakpoints.down('sm')]: {
     //   width:'150%'
@@ -270,7 +280,7 @@ function ScrollTop(props) {
     </Zoom>
   );
 }
-
+const loaderimg = require("./Loader.gif");
 ScrollTop.propTypes = {
   children: PropTypes.element.isRequired,
   /**
@@ -282,16 +292,21 @@ ScrollTop.propTypes = {
 
 function App(props) {
   const { darkMode, setDarkMode } = props;
+  const [loaded, setLoaded] = useState(false);
   const classes = useStyles();
   //const theme = useTheme();
   //const matches = useMediaQuery(theme.breakpoints.down("xs"));
   useEffect(() => {
     AOS.init({
-      duration : 2000
+      duration: 2000,
     });
   }, []);
+
+  useEffect(() => {
+    setTimeout(() => setLoaded(true), 5000);
+  }, []);
   // if (this.state.loading) return <Loader/>;
-  return (
+  return loaded ? (
     <div className={classes.root}>
       <CssBaseline />
       <HideOnScroll {...props}>
@@ -314,20 +329,61 @@ function App(props) {
 
               <Grid item xs={6}>
                 <Grid
-                className={classes.sectionDesktop}
+                  className={classes.sectionDesktop}
                   container
                   direction="row"
                   justify="flex-end"
                   alignItems="center"
                 >
-                  <Grid item xs={2}> <Button  className={classes.link}>< Link className={classes.link}  to="home" spy={true} smooth ={true} offset ={-100} duration={500}>Home</Link>  </Button></Grid>
-                  <Grid item xs={3}> <Button  className={classes.link}><Link className={classes.link} to="ourservices" spy={true} smooth ={true} offset ={-100} duration={500}>Our Services</Link>  </Button></Grid>
-                  <Grid item xs={3}> <Button  className={classes.link}><Link className={classes.link} to="aboutus" spy={true} smooth ={true} offset ={-100} duration={500} >About Us</Link>  </Button></Grid>
+                  <Grid item xs={2}>
+                    {" "}
+                    <Button className={classes.link}>
+                      <Link
+                        className={classes.link}
+                        to="home"
+                        spy={true}
+                        smooth={true}
+                        offset={-100}
+                        duration={500}
+                      >
+                        Home
+                      </Link>{" "}
+                    </Button>
+                  </Grid>
+                  <Grid item xs={3}>
+                    {" "}
+                    <Button className={classes.link}>
+                      <Link
+                        className={classes.link}
+                        to="ourservices"
+                        spy={true}
+                        smooth={true}
+                        offset={-100}
+                        duration={500}
+                      >
+                        Our Services
+                      </Link>{" "}
+                    </Button>
+                  </Grid>
+                  <Grid item xs={3}>
+                    {" "}
+                    <Button className={classes.link}>
+                      <Link
+                        className={classes.link}
+                        to="aboutus"
+                        spy={true}
+                        smooth={true}
+                        offset={-100}
+                        duration={500}
+                      >
+                        About Us
+                      </Link>{" "}
+                    </Button>
+                  </Grid>
                 </Grid>
               </Grid>
 
-              <Grid item xs={4}
-              className={classes.sectionDesktop}>
+              <Grid item xs={4} className={classes.sectionDesktop}>
                 <Grid
                   container
                   direction="row"
@@ -335,8 +391,22 @@ function App(props) {
                   alignItems="center"
                 >
                   <Grid item xs={5}>
-                    <Button variant="outlined" color="secondary" className={classes.contactus} size='small' disableElevation>
-                    <Link to="contactus" spy={true} smooth ={true} offset ={-300} duration={500} >Contact us</Link>
+                    <Button
+                      variant="outlined"
+                      color="secondary"
+                      className={classes.contactus}
+                      size="small"
+                      disableElevation
+                    >
+                      <Link
+                        to="contactus"
+                        spy={true}
+                        smooth={true}
+                        offset={-300}
+                        duration={500}
+                      >
+                        Contact us
+                      </Link>
                     </Button>
                   </Grid>
                   <Grid item xs={7}>
@@ -354,23 +424,53 @@ function App(props) {
               </Grid>
             </Grid>
             <div className={classes.sectionMobile}>
-            < Mobilemenu darkMode={darkMode} setDarkMode={setDarkMode} />
-          </div>
+              <Mobilemenu darkMode={darkMode} setDarkMode={setDarkMode} />
+            </div>
           </Toolbar>
         </AppBar>
       </HideOnScroll>
-      <Toolbar id='back-to-top-anchor'/>
-      <div  style={{ width: '100%' }}>
-        <Box  style={{ width: '100%' }}>
-          <Paper style={{marginTop:-20}}> <Box className={classes.componentcontainer} id="home"><Hero/></Box></Paper>
-          <Box className={classes.componentcontainer}><WhyChooseUs/></Box>
-          <Box className={classes.componentcontainer} id="ourservices"><OurServices/></Box>  
-           <Box className={classes.componentcontainer} id="aboutus"><About/></Box> 
-           <Box className={classes.componentcontainer}><OurTeam/></Box> 
-           <Paper style={{marginTop:-20}} elevation={0} className={classes.papers}> <Box className={classes.componentcontainer}><Praises/></Box></Paper>
-           <Box className={classes.componentcontainer1}><Accomplishments/></Box>
-          <Box className={classes.componentcontainer} id="contactus"><Contact/></Box> 
-           <Paper className={classes.componentcontainer3}><Box className={classes.componentcontainer}><Footer/></Box> </Paper>
+      <Toolbar id="back-to-top-anchor" />
+      <div style={{ width: "100%" }}>
+        <Box style={{ width: "100%" }}>
+          <Paper style={{ marginTop: -20 }}>
+            {" "}
+            <Box className={classes.componentcontainer} id="home">
+              <Hero />
+            </Box>
+          </Paper>
+          <Box className={classes.componentcontainer}>
+            <WhyChooseUs />
+          </Box>
+          <Box className={classes.componentcontainer} id="ourservices">
+            <OurServices />
+          </Box>
+          <Box className={classes.componentcontainer} id="aboutus">
+            <About />
+          </Box>
+          <Box className={classes.componentcontainer}>
+            <OurTeam />
+          </Box>
+          <Paper
+            style={{ marginTop: -20 }}
+            elevation={0}
+            className={classes.papers}
+          >
+            {" "}
+            <Box className={classes.componentcontainer}>
+              <Praises />
+            </Box>
+          </Paper>
+          <Box className={classes.componentcontainer1}>
+            <Accomplishments />
+          </Box>
+          <Box className={classes.componentcontainer} id="contactus">
+            <Contact />
+          </Box>
+          <Paper className={classes.componentcontainer3}>
+            <Box className={classes.componentcontainer}>
+              <Footer />
+            </Box>{" "}
+          </Paper>
         </Box>
       </div>
       <ScrollTop {...props}>
@@ -378,6 +478,10 @@ function App(props) {
           <KeyboardArrowUpIcon />
         </Fab>
       </ScrollTop>
+    </div>
+  ) : (
+    <div className={classes.loader__image__container}>
+      <img src={loaderimg} className={classes.loader__image} />
     </div>
   );
 }
