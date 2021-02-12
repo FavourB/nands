@@ -233,7 +233,7 @@ function OurTeam() {
                 })}
             </Carousel>
         </Grid>
-        <Grid item xs={7}  sm={6} className={classes.contain}>
+        <Grid item md={6} xs={12}  sm={6} className={classes.contain}>
                 <Grid item sm={12} md={12}>
                     <Typography variant="h3">
                         Meet Our Team
@@ -276,10 +276,10 @@ function OurTeam() {
                 <Grid item sm={12} md={12} className={classes.btnContainer}>
                     {/* <Grid container direction="column" justify="space-between" alignItems="center"> */}
                         <Grid item xs={12} md={12} sm={4}>
-                            <Button variant="outlined" fullWidth color='secondary' className={`${classes.contactus} text-nowrap`}><Link to="contactus" spy={true} smooth ={true} offset ={-300} duration={500} >Contact Us</Link></Button>
+                            <Button variant="outlined" fullWidth size='large' color='secondary' className={`${classes.contactus} text-nowrap`}><Link to="contactus" spy={true} smooth ={true} offset ={-300} duration={500} >Contact Us</Link></Button>
                         </Grid>
                         <Grid item xs={12} md={12} sm={4}>
-                            <Button variant='contained' fullWidth color='secondary' style={{color:'#fff'}} className={`${classes.hireus} text-nowrap`} target="_blank" href="https://www.upwork.com/o/companies/~01fe351fce0ea3fd23" >Hire Us</Button>
+                            <Button variant='contained' fullWidth size="large" color='secondary' style={{color:'#fff'}} className={`${classes.hireus} text-nowrap`} target="_blank" href="https://www.upwork.com/o/companies/~01fe351fce0ea3fd23" >Hire Us</Button>
                         </Grid>
                     {/* </Grid>                 */}
                 </Grid>
