@@ -8,6 +8,7 @@ import IconButton from '@material-ui/core/IconButton';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
+import { Link } from 'react-scroll';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -105,17 +106,15 @@ export default function Footer() {
               </Grid>
               </Grid>
             <Grid container direction="row" justify="flex-start" alignItems="flex-start" style={{marginTop:70, marginBottom:-30}} >
-                <Grid item xs={2} md={3} sm={3}>
-                    <StyledButton1 size="small">HOME</StyledButton1>
+                <Grid item xs={3} md={3} sm={3} >
+                    <StyledButton1 size="small"><Link to="home" spy={true} smooth ={true} offset ={-100} duration={500}>HOME</Link></StyledButton1>
                 </Grid>
-                <Grid item xs={3} sm={3}>
-                  <StyledButton1 size="small">OUR SERVICES</StyledButton1>
+                <Grid item xs={3} sm={3} className="pl-xs-0">
+                  <StyledButton1 size="small"><Link to="ourservices" spy={true} smooth ={true} offset ={-100} duration={500}>SERVICES</Link></StyledButton1>
                 </Grid>
-                <Grid item xs={3} sm={3}>
-                  <StyledButton1 size="small">TESTIMONIALS</StyledButton1>
-                </Grid>
-                <Grid item xs={3} sm={3}>
-                  <StyledButton1 size="small">CONTACT US</StyledButton1>
+                
+                <Grid item xs={4} sm={3} >
+                  <StyledButton1 size="small" className="pl-xs-2"><Link to="contactus" spy={false} smooth ={true} offset ={-100} duration={500}>CONTACT US</Link></StyledButton1>
                 </Grid>
             </Grid>
           </Paper>

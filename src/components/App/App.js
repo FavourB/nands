@@ -22,16 +22,17 @@ import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import Zoom from "@material-ui/core/Zoom";
 import Hero from "../hero/hero";
 import Praises from "../testimonials/testimonials"
-import Team from "../team/team"
 import Accomplishments from "../accomplishment/accomplishment";
 import Contact from "../Contact/Contact";
 import About from "../About/About";
 import Footer from "../footer/footer";
 import { Link } from 'react-scroll';
 import Mobilemenu from "../Mobilemenu"
-
+import Loader from './loader'
 import WhyChooseUs from "../WhyChooseUs"
 import OurServices from "../OurServices"
+import OurTeam from "../team/ourteam";
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -43,25 +44,41 @@ const useStyles = makeStyles((theme) => ({
   componentcontainer: {
     marginLeft: theme.spacing(20),
     marginRight: theme.spacing(20),
-    paddingTop: theme.spacing(6),
-    paddingBottom: theme.spacing(6),
+    paddingTop: theme.spacing(12),
+    paddingBottom: theme.spacing(12),
     [theme.breakpoints.down("md")]: {
       marginLeft: theme.spacing(7),
-      marginRight: theme.spacing(9),
-      paddingTop: theme.spacing(4),
-      paddingBottom: theme.spacing(2),
+      marginRight: theme.spacing(7),
+      paddingTop: theme.spacing(10),
+      paddingBottom: theme.spacing(10),
     },
     [theme.breakpoints.down("sm")]: {
-      marginLeft: theme.spacing(10),
-      marginRight: theme.spacing(1),
-      paddingTop: theme.spacing(4),
-      paddingBottom: theme.spacing(2),
+      marginLeft: theme.spacing(5),
+      marginRight: theme.spacing(5),
+      paddingTop: theme.spacing(5),
+      paddingBottom: theme.spacing(5),
     },
     [theme.breakpoints.down("xs")]: {
       marginLeft: theme.spacing(4),
       marginRight: theme.spacing(4),
       paddingTop: theme.spacing(4),
       paddingBottom: theme.spacing(2),
+    },
+  },
+  componentcontainer4: {
+    marginLeft: theme.spacing(20),
+    marginRight: theme.spacing(20),
+    [theme.breakpoints.down("md")]: {
+      marginLeft: theme.spacing(7),
+      marginRight: theme.spacing(7),
+    },
+    [theme.breakpoints.down("sm")]: {
+      marginLeft: theme.spacing(5),
+      marginRight: theme.spacing(5),
+    },
+    [theme.breakpoints.down("xs")]: {
+      marginLeft: theme.spacing(4),
+      marginRight: theme.spacing(4),
     },
   },
   componentcontainer2: {
@@ -101,7 +118,37 @@ const useStyles = makeStyles((theme) => ({
       paddingTop: theme.spacing(0),
       paddingBottom: theme.spacing(2),
     },
+    [theme.breakpoints.down("md")]: {
+      marginLeft: theme.spacing(5),
+      marginRight: theme.spacing(5),
+      marginTop: -70,
+      paddingTop: theme.spacing(0),
+      paddingBottom: theme.spacing(2),
+    },
+    [theme.breakpoints.down("sm")]: {
+      marginLeft: theme.spacing(5),
+      marginRight: theme.spacing(5),
+      marginTop: -40,
+      paddingTop: theme.spacing(0),
+      paddingBottom: theme.spacing(2),
+    },
   },
+  componentcontainer3:{
+    marginTop:-220, 
+    paddingTop:150,
+    [theme.breakpoints.down("xs")]: {
+      marginTop:-150, 
+      paddingTop:150,
+    [theme.breakpoints.down("md")]: {
+      marginTop:-220, 
+      paddingTop:150,
+    },
+    [theme.breakpoints.down("sm")]: {
+      marginTop:-150, 
+      paddingTop:150,
+    },
+  },
+},
   papers:{
     background:theme.palette.secondary.light,
   },
@@ -115,7 +162,8 @@ const useStyles = makeStyles((theme) => ({
 			color:theme.palette.secondary.main,
 			// paddingBottom:20,
 			// borderBottom:'2px solid #1D1974',
-			textDecoration:"none"
+			textDecoration:"none",
+     
 		},
 		'&:hover':{
 			color:theme.palette.secondary.main,
@@ -132,16 +180,30 @@ const useStyles = makeStyles((theme) => ({
 },
   sectionMobile: {
     display: 'flex',
-    [theme.breakpoints.up('sm')]: {
+    [theme.breakpoints.up('md')]: {
       display: 'none',
     },
   },
   sectionDesktop: {
     display: 'none',
     //width: "80%",
-    [theme.breakpoints.up('sm')]: {
+    [theme.breakpoints.up('md')]: {
       display: 'flex',
     },
+  },
+  logo:{
+    width:'120%',
+    padding:theme.spacing(0),
+    // [theme.breakpoints.down("xs")]: {
+    //   width:'200%'
+    // },
+    [theme.breakpoints.up("md")]: {
+      padding:theme.spacing(1),
+      width:'80%'
+    },
+    // [theme.breakpoints.down('sm')]: {
+    //   width:'150%'
+    // },
   },
 }));
 
@@ -221,6 +283,7 @@ function App(props) {
   const classes = useStyles();
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down("xs"));
+  // if (this.state.loading) return <Loader/>;
   return (
     <div className={classes.root}>
       <CssBaseline />
@@ -232,26 +295,27 @@ function App(props) {
               direction="row"
               justify="space-between"
               alignItems="center"
+              className={classes.componentcontainer4}
             >
-              <Grid item xs={3}>
+              <Grid item xs={1}>
                 <img
                   src={require("../../assets/images/logo.png")}
                   alt="logo"
-                  style={{ width: "10%" }}
+                  className={classes.logo}
                 />
               </Grid>
 
-              <Grid item xs={5}>
+              <Grid item xs={6}>
                 <Grid
                 className={classes.sectionDesktop}
                   container
                   direction="row"
-                  justify="space-evenly"
+                  justify="flex-end"
                   alignItems="center"
                 >
-                  <Grid item> <Button  className={classes.link}><Link to="home" spy={true} smooth ={true} offset ={-100} duration={500}>Home</Link>  </Button></Grid>
-                  <Grid item> <Button  className={classes.link}><Link to="ourservices" spy={true} smooth ={true} offset ={-100} duration={500}>Our Services</Link>  </Button></Grid>
-                  <Grid item> <Button  className={classes.link}><Link to="aboutus" spy={true} smooth ={true} offset ={-100} duration={500} >About Us</Link>  </Button></Grid>
+                  <Grid item xs={2}> <Button  className={classes.link}>< Link className={classes.link}  to="home" spy={true} smooth ={true} offset ={-100} duration={500}>Home</Link>  </Button></Grid>
+                  <Grid item xs={3}> <Button  className={classes.link}><Link className={classes.link} to="ourservices" spy={true} smooth ={true} offset ={-100} duration={500}>Our Services</Link>  </Button></Grid>
+                  <Grid item xs={3}> <Button  className={classes.link}><Link className={classes.link} to="aboutus" spy={true} smooth ={true} offset ={-100} duration={500} >About Us</Link>  </Button></Grid>
                 </Grid>
               </Grid>
 
@@ -263,12 +327,12 @@ function App(props) {
                   justify="flex-end"
                   alignItems="center"
                 >
-                  <Grid item xs={4}>
+                  <Grid item xs={5}>
                     <Button variant="outlined" color="secondary" className={classes.contactus} size='small' disableElevation>
                     <Link to="contactus" spy={true} smooth ={true} offset ={-300} duration={500} >Contact us</Link>
                     </Button>
                   </Grid>
-                  <Grid item xs={4}>
+                  <Grid item xs={7}>
                     <FormControlLabel
                       control={
                         <Switch
@@ -292,14 +356,14 @@ function App(props) {
       <div  style={{ width: '100%' }}>
         <Box  style={{ width: '100%' }}>
           <Paper style={{marginTop:-20}}> <Box className={classes.componentcontainer} id="home"><Hero/></Box></Paper>
-          <Box className={classes.componentcontainer2}><WhyChooseUs/></Box>
+          <Box className={classes.componentcontainer}><WhyChooseUs/></Box>
           <Box className={classes.componentcontainer} id="ourservices"><OurServices/></Box>  
            <Box className={classes.componentcontainer} id="aboutus"><About/></Box> 
-           <Box className={classes.componentcontainer}><Team /></Box> 
+           <Box className={classes.componentcontainer}><OurTeam/></Box> 
            <Paper style={{marginTop:-20}} elevation={0} className={classes.papers}> <Box className={classes.componentcontainer}><Praises/></Box></Paper>
            <Box className={classes.componentcontainer1}><Accomplishments/></Box>
           <Box className={classes.componentcontainer} id="contactus"><Contact/></Box> 
-           <Paper style={{marginTop:-20}}><Box className={classes.componentcontainer}><Footer/></Box> </Paper>
+           <Paper className={classes.componentcontainer3}><Box className={classes.componentcontainer}><Footer/></Box> </Paper>
         </Box>
       </div>
       <ScrollTop {...props}>

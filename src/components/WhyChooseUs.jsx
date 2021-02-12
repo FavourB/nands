@@ -45,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
             // padding: theme.spacing(4, 3, 3),
         },
         "@media (max-width:599px)": {
-            width: 300,
+            width: 250,
             height: 230,
             // marginBottom: theme.spacing(3),
             // padding: theme.spacing(4, 3, 3),
@@ -55,6 +55,7 @@ const useStyles = makeStyles((theme) => ({
         transform: "scale3d(1.05, 1.05, 1)"
     },
     contain: {
+        marginTop:theme.spacing(7),
         "@media (max-width:1200px)": {
 
             paddingLeft: theme.spacing(3)
@@ -68,6 +69,12 @@ const useStyles = makeStyles((theme) => ({
         "@media (max-width:800px)": {
 
             marginLeft: theme.spacing(3)
+
+        },
+        "@media (max-width:600px)": {
+
+            marginLeft: theme.spacing(0),
+            paddingLeft: theme.spacing(0)
 
         },
     },
@@ -112,12 +119,12 @@ const WhyChooseUs = () => {
             //className="ml-lg-5 ml-smOnly-5 ml-xsOnly-4 pr-md-4 pl-md-1"
 
             >
-                <Grid justify="center" className={classes.title2}>
-                    WHY CHOOSE US
-                </Grid >
+               <Grid container direction="row" justify="center" alignItems="center" style={{marginBottom:10}}>
+             <Typography style={{textAlign:'center'}} variant='caption'>WHY CHOOSE US</Typography>
+                </Grid>
 
-                <Grid container justify="center" direction="row" className={classes.contain}
-                //className="pl-smOnly-5 pl-lg-4"
+                <Grid container justify="center" alignItems="center" direction="row" className={classes.contain}
+                //className="pl-smOnly-5 pl-lg-4"""
                 >
 
                     {/* <Grid item justify="center">
@@ -131,10 +138,10 @@ const WhyChooseUs = () => {
                             raised={state2.raised} zdepth={state2.shadow}>
 
                             <StarOutlineIcon classname="px-0" style={{ color: "#FFCD67", fontSize: 40 }} />
-                            <Typography variant="body1" className={classes.title}>
+                            <Typography variant="h5" className={classes.title}>
                                 Quality
                             </Typography>
-                            <Typography variant="body2">
+                            <Typography variant="body2" style={{lineHeight:1.3}}>
                                 We are a software company equipped with all necessary skills to provide work that meets industry standards.
                            </Typography >
                         </Card>
@@ -147,10 +154,10 @@ const WhyChooseUs = () => {
                             onMouseOut={() => setState3({ raised: false, shadow: 1 })}
                             raised={state3.raised} zdepth={state3.shadow}>
                             <CheckCircleOutlineIcon classname="px-0" style={{ color: "#FFCD67", fontSize: 40 }} />
-                            <Typography variant="body1" className={classes.title}>
+                            <Typography variant="h5" className={classes.title}>
                                 Reliability
                             </Typography>
-                            <Typography variant="body2">
+                            <Typography variant="body2" style={{lineHeight:1.3}}>
                                 Teams put together for your projects will deliver top quality work in a timely manner, as agreed.
 
                            </Typography >
@@ -164,10 +171,10 @@ const WhyChooseUs = () => {
                             onMouseOut={() => setState4({ raised: false, shadow: 1 })}
                             raised={state4.raised} zdepth={state4.shadow}>
                             <PaymentIcon classname="px-0" style={{ color: "#FFCD67", fontSize: 40 }} />
-                            <Typography variant="body1" className={classes.title}>
+                            <Typography variant="h5" className={classes.title}>
                                 Cost-effective
                             </Typography>
-                            <Typography variant="body2">
+                            <Typography variant="body2" style={{lineHeight:1.3}}>
                                 Want to get your projects done without breaking the bank? N&S tech is here for you.
 
                            </Typography >
@@ -181,10 +188,10 @@ const WhyChooseUs = () => {
                             onMouseOut={() => setState({ raised: false, shadow: 1 })}
                             raised={state.raised} zdepth={state.shadow}>
                             <PersonalVideoIcon classname="px-0" style={{ color: "#FFCD67", fontSize: 40 }} />
-                            <Typography variant="body1" className={classes.title}>
+                            <Typography variant="h5" className={classes.title}>
                                 Vision
                             </Typography>
-                            <Typography variant="body2">
+                            <Typography variant="body2" style={{lineHeight:1.3}}>
                                 We are passionate, innovative, willing to adapt and set market trends and demands.
                            </Typography >
                         </Card>

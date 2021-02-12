@@ -16,26 +16,36 @@ const Lighttheme = createMuiTheme({
         fontSize: "2.5em",
       },
       [theme.breakpoints.up("md")]: {
-        fontSize: "3.4rem",
+        fontSize: "3.0rem",
         marginBottom: theme.spacing(1),
       },
     },
 
     h3: {
-      fontSize: "1.0rem",
-      fontWeight: "300",
-      "@media (min-width:600px)": {
-        fontSize: "1.0rem",
-      },
-      [theme.breakpoints.up("md")]: {
-        fontSize: "2.0rem",
-      },
-    },
-     h4: {
       fontSize: "1.5rem",
-      fontWeight: "700",
+      fontWeight: "600",
       "@media (min-width:600px)": {
         fontSize: "1.5rem",
+      },
+      [theme.breakpoints.up("md")]: {
+        fontSize: "2.5rem",
+      },
+    },
+    h2: {
+      fontSize: "1.7rem",
+      fontWeight: "600",
+      "@media (min-width:600px)": {
+        fontSize: "1.7rem",
+      },
+      [theme.breakpoints.up("md")]: {
+        fontSize: "2.8rem",
+      },
+    },
+    h4: {
+      fontSize: "1.0rem",
+      fontWeight: "700",
+      "@media (min-width:600px)": {
+        fontSize: "1.0rem",
       },
       [theme.breakpoints.up("md")]: {
         fontSize: "2.0rem",
@@ -55,17 +65,16 @@ const Lighttheme = createMuiTheme({
       fontSize: "0.8rem",
       fontWeight: "300",
       "@media (min-width:600px)": {
-        fontSize: "0.8em",
+        fontSize: "1.0em",
       },
       [theme.breakpoints.up("md")]: {
-        fontSize: "1.0rem",
+        fontSize: "1.1rem",
         marginBottom: theme.spacing(1),
       },
     },
-   
     body1: {
       fontSize: "0.87rem",
-      fontWeight: "700",
+      fontWeight: "400",
       "@media (min-width:600px)": {
         fontSize: "0.87rem",
       },
@@ -76,6 +85,7 @@ const Lighttheme = createMuiTheme({
     body2: {
       fontSize: "0.7rem",
       fontWeight: "300",
+      lineHeight:2,
       "@media (min-width:600px)": {
         fontSize: "0.7rem",
       },
@@ -84,6 +94,7 @@ const Lighttheme = createMuiTheme({
       },
     },
   },
+
   palette: {
     type: "light",
     background: {
@@ -94,7 +105,8 @@ const Lighttheme = createMuiTheme({
       main: "#F1F8FE",
       light: "#005792",
       lighter: "#005792",
-      dark:"#fff"
+      lightest:"rgba(12,113,183,0.7)",
+      dark:"#F6FAFF"
     },
     secondary: {
       main: "#F8B630",
@@ -124,20 +136,30 @@ const themeDark = createMuiTheme({
     },
 
     h3: {
-      fontSize: "1.0rem",
-      fontWeight: "300",
+      fontSize: "1.5rem",
+      fontWeight: "600",
       "@media (min-width:600px)": {
-        fontSize: "1.0rem",
+        fontSize: "1.5rem",
       },
       [theme.breakpoints.up("md")]: {
-        fontSize: "2.0rem",
+        fontSize: "2.5rem",
+      },
+    },
+    h2: {
+      fontSize: "1.7rem",
+      fontWeight: "600",
+      "@media (min-width:600px)": {
+        fontSize: "1.7rem",
+      },
+      [theme.breakpoints.up("md")]: {
+        fontSize: "2.8rem",
       },
     },
     h4: {
-      fontSize: "1.5rem",
-      fontWeight: "700",
+      fontSize: "1.0rem",
+      fontWeight: "600",
       "@media (min-width:600px)": {
-        fontSize: "1.5rem",
+        fontSize: "1.0rem",
       },
       [theme.breakpoints.up("md")]: {
         fontSize: "2.0rem",
@@ -166,7 +188,7 @@ const themeDark = createMuiTheme({
     },
     body1: {
       fontSize: "0.87rem",
-      fontWeight: "700",
+      fontWeight: "400",
       "@media (min-width:600px)": {
         fontSize: "0.87rem",
       },
@@ -177,6 +199,7 @@ const themeDark = createMuiTheme({
     body2: {
       fontSize: "0.7rem",
       fontWeight: "300",
+      lineHeight:2,
       "@media (min-width:600px)": {
         fontSize: "0.7rem",
       },
@@ -196,6 +219,7 @@ const themeDark = createMuiTheme({
       main: "#001625",
       light: "#001625",
       lighter: "#68E1FD",
+      lightest:"rgba(104, 225, 253, 0.7)",
       dark: "#022A45"
     },
     secondary: {
