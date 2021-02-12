@@ -33,20 +33,20 @@ const useStyles = makeStyles((theme) => ({
 
         },
         "@media (max-width:960px)": {
-            width: 270,
-            height: 200,
+            width: 220,
+            height: 220,
             marginBottom: theme.spacing(3),
-            padding: theme.spacing(4, 3, 3),
+            //padding: theme.spacing(4, 3, 3),
         },
         "@media (max-width:750px)": {
-            width: 210,
-            height: 230,
+            width: "100%",
+            height: "100%",
             // marginBottom: theme.spacing(3),
             // padding: theme.spacing(4, 3, 3),
         },
         "@media (max-width:599px)": {
-            width: 250,
-            height: 230,
+            width: "100%",
+            height: "100%",
             // marginBottom: theme.spacing(3),
             // padding: theme.spacing(4, 3, 3),
         },
