@@ -214,7 +214,7 @@ function OurTeam() {
             <Carousel className={classes.carousel} indicators={false} slide={false} fade={true} prevIcon={false} nextIcon={false}>
                 {team.map((member) => {
                     return (
-                        <Carousel.Item interval={3000} className={classes.item} key={member.name}>
+                        <Carousel.Item interval={2000} className={classes.item} key={member.name}>
                             <img
                             className={`d-block w-100 ${classes.img}`}
                             src={member.img}
