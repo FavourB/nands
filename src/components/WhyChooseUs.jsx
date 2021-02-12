@@ -13,8 +13,9 @@ const useStyles = makeStyles((theme) => ({
         flexGrow: 1,
     },
     card: {
-        height: 230,
-        width: 230,
+        //height: 230,
+        width: "90%",
+        height: 270,
         backgroundColor: theme.palette.primary.dark,
         padding: theme.spacing(5, 3, 3),
         borderRadius: "15px",
@@ -26,18 +27,26 @@ const useStyles = makeStyles((theme) => ({
 
         },
         "@media (max-width:1158px)": {
-            width: 190,
-            height: 250,
+            width: " 80%",
+            height: 270,
             //marginRight: theme.spacing(1)
             marginLeft: theme.spacing(0)
 
         },
         "@media (max-width:960px)": {
-            width: 220,
-            height: 220,
+            width: "80%",
+            //padding: theme.spacing(5, 3, 3, 8),
+            //height: 220,
             marginBottom: theme.spacing(3),
             //padding: theme.spacing(4, 3, 3),
         },
+        // "@media (max-width:837px) and (min-width: 700px)": {
+        //     width: "40%",
+        //     //padding: theme.spacing(5, 3, 3, 8),
+        //     //height: 220,
+        //     marginBottom: theme.spacing(3),
+        //     //padding: theme.spacing(4, 3, 3),
+        // },
         "@media (max-width:750px)": {
             width: "100%",
             height: "100%",
@@ -55,10 +64,11 @@ const useStyles = makeStyles((theme) => ({
         transform: "scale3d(1.05, 1.05, 1)"
     },
     contain: {
-        marginTop:theme.spacing(7),
+        marginTop: theme.spacing(7),
+        paddingLeft: theme.spacing(5),
         "@media (max-width:1200px)": {
 
-            paddingLeft: theme.spacing(3)
+            paddingLeft: theme.spacing(6)
 
         },
         "@media (max-width:900px)": {
@@ -74,7 +84,7 @@ const useStyles = makeStyles((theme) => ({
         "@media (max-width:600px)": {
 
             marginLeft: theme.spacing(0),
-            paddingLeft: theme.spacing(0)
+            paddingLeft: theme.spacing(3)
 
         },
     },
@@ -119,20 +129,22 @@ const WhyChooseUs = () => {
             //className="ml-lg-5 ml-smOnly-5 ml-xsOnly-4 pr-md-4 pl-md-1"
 
             >
-               <Grid container direction="row" justify="center" alignItems="center" style={{marginBottom:10}}>
-             <Typography style={{textAlign:'center'}} variant='caption'>WHY CHOOSE US</Typography>
+                <Grid container direction="row" justify="center" alignItems="center" style={{ marginBottom: 10, marginTop: 7 }} data-aos="fade-up"
+                    data-aos-anchor-placement="center-bottom" data-aos-duration="3000">
+                    <Typography style={{ textAlign: 'center' }} variant='caption'>WHY CHOOSE US</Typography>
                 </Grid>
 
-                <Grid container justify="center" alignItems="center" direction="row" className={classes.contain}
+                <Grid container justify="space-between" alignItems="center" direction="row" className={classes.contain}
                 //className="pl-smOnly-5 pl-lg-4"""
                 >
 
                     {/* <Grid item justify="center">
                     <Grid container justify="center"  > */}
-                    <Grid item xs={11} sm={5} md={3}
+                    <Grid item xs={11} sm={4} md={3} data-aos="fade-up"
+                        data-aos-anchor-placement="center-bottom" data-aos-duration="3000"
                     //className=" mb-smOnly-5 pl-smOnly-5 pb-md-4 "
                     >
-                        <Card elevation={8} className={classes.card} classes={{ root: state2.raised ? classes.cardHovered : "" }}
+                        <Card elevation={6} className={classes.card} classes={{ root: state2.raised ? classes.cardHovered : "" }}
                             onMouseOver={() => setState2({ raised: true, shadow: 3 })}
                             onMouseOut={() => setState2({ raised: false, shadow: 1 })}
                             raised={state2.raised} zdepth={state2.shadow}>
@@ -141,12 +153,13 @@ const WhyChooseUs = () => {
                             <Typography variant="h5" className={classes.title}>
                                 Quality
                             </Typography>
-                            <Typography variant="body2" style={{lineHeight:1.3}}>
+                            <Typography variant="body2" style={{ lineHeight: 1.3 }}>
                                 We are a software company equipped with all necessary skills to provide work that meets industry standards.
                            </Typography >
                         </Card>
                     </Grid>
-                    <Grid item xs={11} sm={5} md={3}
+                    <Grid item xs={11} sm={4} md={3} data-aos="fade-up"
+                        data-aos-anchor-placement="center-bottom" data-aos-duration="3000"
                     //className=" mb-smOnly-4 mr-xs-4"
                     >
                         <Card elevation={8} className={classes.card} classes={{ root: state3.raised ? classes.cardHovered : "" }}
@@ -157,13 +170,14 @@ const WhyChooseUs = () => {
                             <Typography variant="h5" className={classes.title}>
                                 Reliability
                             </Typography>
-                            <Typography variant="body2" style={{lineHeight:1.3}}>
+                            <Typography variant="body2" style={{ lineHeight: 1.3 }}>
                                 Teams put together for your projects will deliver top quality work in a timely manner, as agreed.
 
                            </Typography >
                         </Card>
                     </Grid>
-                    <Grid item xs={11} sm={5} md={3}
+                    <Grid item xs={11} sm={4} md={3} data-aos="fade-up"
+                        data-aos-anchor-placement="center-bottom" data-aos-duration="3000"
                     //className="pl-smOnly-5"
                     >
                         <Card elevation={8} className={classes.card} classes={{ root: state4.raised ? classes.cardHovered : "" }}
@@ -174,13 +188,14 @@ const WhyChooseUs = () => {
                             <Typography variant="h5" className={classes.title}>
                                 Cost-effective
                             </Typography>
-                            <Typography variant="body2" style={{lineHeight:1.3}}>
+                            <Typography variant="body2" style={{ lineHeight: 1.3 }}>
                                 Want to get your projects done without breaking the bank? N&S tech is here for you.
 
                            </Typography >
                         </Card>
                     </Grid>
-                    <Grid item xs={11} sm={5} md={3}
+                    <Grid item xs={11} sm={4} md={3} data-aos="fade-up"
+                        data-aos-anchor-placement="center-bottom" data-aos-duration="3000"
                     //className="pr-md-2"
                     >
                         <Card elevation={8} className={classes.card} classes={{ root: state.raised ? classes.cardHovered : "" }}
@@ -191,7 +206,7 @@ const WhyChooseUs = () => {
                             <Typography variant="h5" className={classes.title}>
                                 Vision
                             </Typography>
-                            <Typography variant="body2" style={{lineHeight:1.3}}>
+                            <Typography variant="body2" style={{ lineHeight: 1.3 }}>
                                 We are passionate, innovative, willing to adapt and set market trends and demands.
                            </Typography >
                         </Card>
