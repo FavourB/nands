@@ -23,7 +23,7 @@ const tutorialSteps = [
   {
     praise: 'Anastestia is very flexible and a good listener. I appreciate working with her and most probably, I am going to hire her for all of my future projects. Her portfolio may not have many projects but she is experienced enough to bring any project up from the ground.',
     imgPath:'https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=400&h=250&q=60',
-    name:'Ahmed Osman',
+    name:'AHMED OSMAN',
     company:'evntc'
   },
   {
@@ -33,9 +33,15 @@ const tutorialSteps = [
     company:'TechReyal'
   },
   {
+    praise: 'Favour has proven to be highly capable and I am pleased to be working with her. She has met deadlines and is attentive to the project needs',
+    imgPath:'https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=400&h=250&q=60',
+    name:'SAM WRIGHT',
+    company:'Quin.Group'
+  },
+  {
     praise: 'Anastestia was great at designing my new app. She did all the screens quickly and helpfully. Designs were better than I expected. She has a true eye for design.',
     imgPath:'https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=400&h=250&q=60',
-    name:'Admin',
+    name:'ADMIN',
     company:'Lentrica SoftWare'
   },
   {

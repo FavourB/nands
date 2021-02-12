@@ -15,7 +15,6 @@ import * as Yup from "yup";
 
 const useStyles = makeStyles((theme) => ({
   contact_headline: {
-    fontWeight: 700,
     marginTop: 20,
     "@media (max-width: 880px)": {
       marginTop: 10,
@@ -32,9 +31,6 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
   },
 
-  getintouch: {
-    fontWeight: 600,
-  },
   border: {
     backgroundColor: "#F8B630",
     height: 3,
@@ -42,8 +38,8 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: 3,
     marginBottom: 35,
     marginTop: 10,
-    "@media (max-width: 880px)": {
-      width: 100,
+    "@media (max-width: 970px)": {
+      width: 70,
     },
   },
   paragraph: {
@@ -58,19 +54,23 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
     marginTop: "20px",
-    fontSize: "18px",
+    fontSize: "16px",
     color: theme.palette.primary.lighter,
+    "@media (max-width: 880px)": {
+      fontSize: "14px",
+    },
   },
   con_email: {
     color: theme.palette.primary.lighter,
     marginLeft: 25,
     textDecoration: "none",
     "&:hover": {
+      color: theme.palette.primary.lightest,
       textDecoration: "none",
     },
   },
   paper: {
-    backgroundColor: theme.palette.primary.main,
+    backgroundColor: theme.palette.primary.dark,
     padding: 50,
     borderRadius: 10,
     "@media (max-width: 1280px)": {
@@ -85,6 +85,9 @@ const useStyles = makeStyles((theme) => ({
   submitBtn: {
     marginTop: "20px",
     padding: "10px 0px",
+    fontWeight:700,
+     color:'#FFF',
+    
   },
 }));
 
@@ -96,27 +99,29 @@ const encode = (data) => {
 
 function Contact() {
   const [success, setSuccess] = useState(false);
-  const [displayForm, setDisplayform] = useState(true);
+  //const [displayForm, setDisplayform] = useState(true);
   const classes = useStyles();
   return (
     <Grid container align="center">
       <Grid item xs={12}>
-        <Typography variant="h6">CONTACT US</Typography>
-        <Typography className={classes.contact_headline} variant="h3">
+      <Grid container direction="row" justify="center" alignItems="center" style={{marginBottom:10}}>
+             <Typography style={{textAlign:'center'}} variant='caption'>CONTACT US</Typography>
+        </Grid>
+        <Typography className={classes.contact_headline} variant="h2">
           Have a Project for us?
         </Typography>
       </Grid>
 
       <Grid container className={classes.section2}>
         <Grid className={classes.grid1} container item xs={12} lg={6}>
-          <Typography className={classes.getintouch} align="left" variant="h4">
+          <Typography align="left" variant="h4">
             Get In Touch
           </Typography>
           <div className={classes.border}></div>
           <div className={classes.para}>
             <Typography
               align="left"
-              variant="p"
+              variant="body2"
               component="p"
               className={classes.paragraph}
             >
@@ -149,7 +154,7 @@ function Contact() {
         </Grid>
 
         <Grid item xs={12} lg={6}>
-          <Paper className={classes.paper} elevation={3}>
+          <Paper className={classes.paper} elevation={8}>
             <Typography
               align="left"
               justify="flex-start"
@@ -200,9 +205,15 @@ function Contact() {
                   .catch((error) => alert(error));
               }}
               validationSchema={Yup.object().shape({
-                email: Yup.string()
-                  .email("Invalid Email")
-                  .required("Email is required"),
+                email: Yup.string("Enter your email")
+                  .email("Email should be valid")
+                  .required("Required"),
+                  name: Yup.string("Enter your name")
+                  .required("Required"),
+                 subject: Yup.string("Enter your subject")
+                  .required("Required"),
+                 message: Yup.string("Enter your  message")
+                  .required("Required"),
               })}
             >
               {(props) => {
@@ -210,8 +221,9 @@ function Contact() {
                   values,
                   touched,
                   errors,
-                  isValid,
-                  dirty,
+                  handleBlur,
+                  // isValid,
+                  // dirty,
                   handleChange,
                   handleSubmit,
                 } = props;
@@ -221,21 +233,32 @@ function Contact() {
                       name="name"
                       label="Name"
                       value={values.name}
+                      onBlur={handleBlur}
+                      error={touched.name && errors.name}
+                      helperText={
+                        touched.name ? errors.name : null
+                      }
                       onChange={handleChange}
                     />
                     <CustomTextfield
                       name="email"
                       value={values.email}
                       label="Email"
+                      onBlur={handleBlur}
                       error={touched.email && errors.email}
                       helperText={
-                        errors.email && touched.email ? errors.email : null
+                        touched.email ? errors.email : null
                       }
                       onChange={handleChange}
                     />
                     <CustomTextfield
                       name="subject"
                       label="Subject"
+                      onBlur={handleBlur}
+                      error={touched.subject && errors.subject}
+                      helperText={
+                        touched.subject ? errors.subject : null
+                      }
                       value={values.subject}
                       onChange={handleChange}
                     />
@@ -243,6 +266,11 @@ function Contact() {
                       value={values.message}
                       onChange={handleChange}
                       name="message"
+                      onBlur={handleBlur}
+                      error={touched.message && errors.message}
+                      helperText={
+                        touched.message ? errors.message : null
+                      }
                       label="Message"
                       multiline
                       rows={4}
@@ -256,7 +284,7 @@ function Contact() {
                       size="large"
                       variant="contained"
                       className={classes.submitBtn}
-                      disabled={!(dirty && isValid)}
+                      //disabled={!(dirty && isValid)}
                     >
                       Send Message
                     </Button>

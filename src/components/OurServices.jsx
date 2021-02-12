@@ -1,16 +1,6 @@
 import React from 'react';
 import { Card, Grid, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import Slide from '@material-ui/core/Slide';
-import { useScrollTrigger } from "@material-ui/core";
-
-// import List from '@material-ui/core/List';
-// import ListItem from '@material-ui/core/ListItem';
-// import ListItemAvatar from '@material-ui/core/ListItemAvatar';
-// import ListItemIcon from '@material-ui/core/ListItemIcon';
-// import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
-// import ListItemText from '@material-ui/core/ListItemText';
-// import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -38,30 +28,28 @@ const useStyles = makeStyles((theme) => ({
     },
 
     grid: {
-        alignItems: "flex-start",
+        alignContent: "center",
+        display: 'flex',
+        flexDirection: "row",
         justifyContent: "space-between",
-        "@media (max-width:660px)": {
-            flexDirection: 'row-reverse',
-
-            //marginLeft: "8px",
-        },
-        "@media (max-width:600px)": {
-            display: "block",
-
-
-            //marginLeft: "8px",
-        },
+    [theme.breakpoints.down("sm")]: {
+        flexDirection: "column",
+        justifyContent: "center",
+    },
     },
     grid2: {
-        alignItems: "flex-start",
+        alignContent: "center",
+        display: 'flex',
+        flexDirection: "row",
         justifyContent: "space-between",
+    [theme.breakpoints.down("sm")]: {
+        justifyContent: "center",
+    },
+    "@media (max-width:660px)": {
+        flexDirection: 'column-reverse',
 
-        "@media (max-width:600px)": {
-            display: "block",
-
-
-            //marginLeft: "8px",
-        },
+    },
+    
     },
     title: {
         padding: theme.spacing(4, 0),
@@ -71,54 +59,48 @@ const useStyles = makeStyles((theme) => ({
         "@media (max-width:600px)": {
             width: "80 %",
 
-            //marginLeft: "8px",
         },
     }
 }));
 
 const OurServices = () => {
     const classes = useStyles();
-    const ref = React.useRef(null);
-
-    let scrollTrigger = useScrollTrigger({
-        disableHysteresis: true,
-        target: ref,
-    });
-
+    
     return (
-        <Grid>
+        <div>
 
-            <Grid justify="center" container className={classes.title} >
-                OUR SERVICES
-                </Grid >
-            <Slide direction="up" in={scrollTrigger} mountOnEnter >
-                <Grid container className={classes.grid2}>
-                    <Grid justfy="center" item xs={8} lg={5} sm={5} md={5} >
+<Grid container direction="row" justify="center" alignItems="center" style={{marginBottom:10}}>
+             <Typography style={{textAlign:'center'}} variant='caption'>OUR SERVICES</Typography>
+                </Grid>
+           
+                <Grid container  className={classes.grid2}>
+                    <Grid item xs={12} lg={5} sm={5} md={5} >
                         <div className={classes.card}>
                             <Typography variant="h4" className="mb-4">
                                 Web Development
                       </Typography>
                             <Typography variant="body 2" >
-                                Responsive web development, including front-end and back-end services, for all website variations; e-commerece, video-conferencing, etc.
+                                Responsive web development, including front-end and back-end services, for all website variations; e-commerce, video-conferencing, etc.
                       </Typography>
 
                         </div>
                     </Grid>
-                    <Grid item xs={8} lg={5} sm={6} md={5} className=" pl-lg-2">
+                    <Grid item xs={12} lg={5} sm={6} md={5} className=" pl-lg-2">
                         <img src={require("../assets/images/webdev1.gif")} className={classes.image}
                             alt='start'
-                            style={{ width: '70%', paddingLeft: '20px' }}
+                            style={{ width: '100%', paddingLeft: '20px' }}
                         />
                     </Grid>
-                </Grid></Slide>
+                </Grid>
+               
 
             <Grid container className={classes.grid}>
 
 
-                <Grid item xs={8} sm={6} lg={5} md={5} className=" pl-lg-2">
+                <Grid item xs={12} sm={6} lg={5} md={5} className=" pl-lg-2">
                     <img src={require("../assets/images/mobile.gif")} className={classes.image}
                         alt='start'
-                        style={{ width: '60%', paddingLeft: '20px' }}
+                        style={{ width: '80%', paddingLeft: '20px' }}
                     />
 
                 </Grid>
@@ -149,20 +131,20 @@ const OurServices = () => {
 
                     </div>
                 </Grid>
-                <Grid item xs={7} lg={5} sm={6} md={5} className=" pl-lg-0">
+                <Grid item xs={12} lg={5} sm={6} md={5} className=" pl-lg-0">
                     <img src={require("../assets/images/product design.gif")} className={classes.image}
                         alt='start'
-                        style={{ width: '60%', paddingLeft: '20px' }}
+                        style={{ width: '80%', paddingLeft: '20px' }}
                     />
                 </Grid>
 
             </Grid>
             <Grid container className={classes.grid}>
 
-                <Grid item xs={7} lg={5} sm={6} md={5} className=" pl-lg-5">
+                <Grid item xs={12} lg={5} sm={6} md={5} className=" pl-lg-5">
                     <img src={require("../assets/images/video.gif")} className={classes.image}
                         alt='start'
-                        style={{ width: '60%', paddingLeft: '20px' }}
+                        style={{ width: '90%', paddingLeft: '20px' }}
                     />
 
                 </Grid>
@@ -179,7 +161,7 @@ const OurServices = () => {
                 </Grid>
 
             </Grid>
-        </Grid>
+        </div>
     );
 }
 
