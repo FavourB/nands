@@ -103,7 +103,7 @@ function Contact() {
   const classes = useStyles();
   return (
     <Grid container align="center" data-aos="fade-up"
-      data-aos-anchor-placement="center-bottom" data-aos-duration="2000">
+      data-aos-anchor-placement="center-bottom" data-aos-duration="1200">
       <Grid item xs={12}>
         <Grid container direction="row" justify="center" alignItems="center" style={{ marginBottom: 10 }}>
           <Typography style={{ textAlign: 'center' }} variant='caption'>CONTACT US</Typography>
@@ -232,7 +232,7 @@ function Contact() {
                   <form onSubmit={handleSubmit}>
                     <CustomTextfield
                       name="name"
-                      label="Name"
+                      placeholder="Name"
                       value={values.name}
                       onBlur={handleBlur}
                       error={touched.name && errors.name}
@@ -244,7 +244,7 @@ function Contact() {
                     <CustomTextfield
                       name="email"
                       value={values.email}
-                      label="Email"
+                      placeholder="Email"
                       onBlur={handleBlur}
                       error={touched.email && errors.email}
                       helperText={
@@ -254,7 +254,7 @@ function Contact() {
                     />
                     <CustomTextfield
                       name="subject"
-                      label="Subject"
+                      placeholder="Subject"
                       onBlur={handleBlur}
                       error={touched.subject && errors.subject}
                       helperText={
@@ -272,7 +272,7 @@ function Contact() {
                       helperText={
                         touched.message ? errors.message : null
                       }
-                      label="Message"
+                      placeholder="Message"
                       multiline
                       rows={4}
                     />

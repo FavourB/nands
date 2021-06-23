@@ -164,6 +164,7 @@ function Praises() {
         }/>  
           </Grid>
     </Grid> 
+   
       </Paper>
     </div>
   );

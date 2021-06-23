@@ -15,20 +15,20 @@ const useStyles = makeStyles((theme) => ({
     card: {
         //height: 230,
         width: "90%",
-        height: 270,
+        height: 300,
         backgroundColor: theme.palette.primary.dark,
         padding: theme.spacing(5, 3, 3),
         borderRadius: "15px",
         transition: "transform 0.5s ease-in-out",
         "@media (max-width:1200px)": {
             width: 210,
-            height: 250,
+            height: 300,
             marginLeft: theme.spacing(2)
 
         },
         "@media (max-width:1158px)": {
             width: " 80%",
-            height: 270,
+            height: 300,
             //marginRight: theme.spacing(1)
             marginLeft: theme.spacing(0)
 

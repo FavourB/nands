@@ -3,6 +3,8 @@ import { init } from "ityped";
 import Typography  from "@material-ui/core/Typography/Typography";
 import Grid from "@material-ui/core/Grid/Grid";
 import Button from "@material-ui/core/Button/Button";
+import Hidden from '@material-ui/core/Hidden';
+import withWidth from '@material-ui/core/withWidth';
 import {  withStyles } from '@material-ui/core/styles';
 import { Link } from 'react-scroll';
 const StyledButton = withStyles((theme) => ({
@@ -31,14 +33,14 @@ export default class Hero extends Component {
           <Grid container direction="row" justify="center"  alignItems="center">
             <Grid item xs={12} md={7} sm={8}>
               <Typography variant='h1' style={{color:'#FFFFFF'}}>
-                Need a <span> </span>
+                Need a <span> </span> <Hidden smUp><div></div></Hidden>
                 {'<'}
                 <span>
                     <Typography variant='span' color='secondary' id="myElement">
                         
                     </Typography>
                 </span>
-                {'>'} ?
+                {'>'}?
               </Typography>
               <Typography variant='h6' style={{color:'#FFFFFF'}} >
                 We are a team of experts committed to bringing your dreams to life. 

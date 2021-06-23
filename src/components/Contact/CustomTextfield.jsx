@@ -11,22 +11,39 @@ import React from "react";
 //   },
 // }));
 
-const CssTextField =  withStyles((theme) => ({
+const CssTextField = withStyles((theme) => ({
   root: {
-    marginTop:20,
+    marginTop: 20,
     '& label.Mui-focused': {
-      color: theme.palette.primary.lighter,
+      color: theme.palette.secondary.main,
     },
     '& .MuiOutlinedInput-root': {
       '&:hover fieldset': {
-        borderColor: theme.palette.primary.lighter,
+        borderColor: theme.palette.secondary.main,
       },
       '&.Mui-focused fieldset': {
-        borderColor: theme.palette.primary.lighter,
+        borderColor: theme.palette.secondary.main,
       },
     },
   },
 }))(TextField);
+
+// const styles = {
+//   cssLabel: {
+//     '&$cssFocused': {
+//       color: theme.palette.primary.lighter,
+//     },
+//   },
+//   cssOutlinedInput: {
+//     '&$cssFocused $notchedOutline': {
+//       borderColor: theme.palette.primary.lighter,
+//     },
+//   },
+//   cssFocused: {},
+//   notchedOutline: {},
+// }
+
+
 function CustomTextfield({
   label,
   name,
@@ -36,12 +53,13 @@ function CustomTextfield({
   value,
   helperText,
   onChange,
+  placeholder
 }) {
- // const classes = useStyles();
+  // const classes = useStyles();
   return (
     <div>
       <CssTextField
-        color="secondary"
+
         //className={classes.textfield}
         error={error}
         helperText={helperText}
@@ -49,7 +67,8 @@ function CustomTextfield({
         value={value}
         autoComplete="false"
         id="outlined-basic"
-        label={label}
+        //label={label}
+        placeholder={placeholder}
         name={name}
         variant="outlined"
         margin="dense"

@@ -83,14 +83,14 @@ const Lighttheme = createMuiTheme({
       },
     },
     body2: {
-      fontSize: "0.7rem",
-      fontWeight: "300",
+      fontSize: "1.0rem",
+      fontWeight: "400",
       lineHeight:2,
       "@media (min-width:600px)": {
-        fontSize: "0.7rem",
+        fontSize: "1.0rem",
       },
       [theme.breakpoints.up("md")]: {
-        fontSize: "0.8rem",
+        fontSize: "1.1rem",
       },
     },
   },
@@ -197,14 +197,14 @@ const themeDark = createMuiTheme({
       },
     },
     body2: {
-      fontSize: "0.7rem",
-      fontWeight: "300",
+      fontSize: "1.0rem",
+      fontWeight: "400",
       lineHeight:2,
       "@media (min-width:600px)": {
-        fontSize: "0.7rem",
+        fontSize: "1.0rem",
       },
       [theme.breakpoints.up("md")]: {
-        fontSize: "0.8rem",
+        fontSize: "1.1rem",
       },
     },
   },
