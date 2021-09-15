@@ -48,7 +48,7 @@ const tutorialSteps = [
     praise: 'Due to my high taste, i found it difficult settling with web developers even when I needed a website urgently. But when I gave it to zino, he blew my mind.',
     imgPath:'https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=400&h=250&q=60',
     name:'EMMANUEL EDEGBO',
-    company:'DotsResourcing'
+    company:'Careerswerve'
   },
   {
     praise: 'Philip is a strong project lead that is well organized and communicates clearly. N&S Tech has proven to be highly capable and I am pleased to be working with them. They have met deadlines and are attentive to the project needs,',

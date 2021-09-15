@@ -86,27 +86,33 @@ const useStyles = makeStyles((theme) => ({
     marginTop: "20px",
     padding: "10px 0px",
     fontWeight: 700,
-    color: '#FFF',
-
+    color: "#FFF",
   },
 }));
-
-const encode = (data) => {
-  return Object.keys(data)
-    .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-    .join("&");
-};
 
 function Contact() {
   const [success, setSuccess] = useState(false);
   //const [displayForm, setDisplayform] = useState(true);
   const classes = useStyles();
   return (
-    <Grid container align="center" data-aos="fade-up"
-      data-aos-anchor-placement="center-bottom" data-aos-duration="1200">
+    <Grid
+      container
+      align="center"
+      data-aos="fade-up"
+      data-aos-anchor-placement="center-bottom"
+      data-aos-duration="1200"
+    >
       <Grid item xs={12}>
-        <Grid container direction="row" justify="center" alignItems="center" style={{ marginBottom: 10 }}>
-          <Typography style={{ textAlign: 'center' }} variant='caption'>CONTACT US</Typography>
+        <Grid
+          container
+          direction="row"
+          justify="center"
+          alignItems="center"
+          style={{ marginBottom: 10 }}
+        >
+          <Typography style={{ textAlign: "center" }} variant="caption">
+            CONTACT US
+          </Typography>
         </Grid>
         <Typography className={classes.contact_headline} variant="h2">
           Have a Project for us?
@@ -188,16 +194,19 @@ function Contact() {
               }}
               onSubmit={(values, { setSubmitting, resetForm }) => {
                 setSubmitting(true);
-                fetch("/", {
+                fetch("https://nandsio-contact.herokuapp.com/contact_form/", {
                   method: "POST",
                   headers: {
-                    "Content-Type": "application/x-www-form-urlencoded",
+                    "Content-Type": "application/json",
                   },
-                  body: encode({
-                    "form-name": "Nands Tech Contact Form",
-                    ...values,
+                  body: JSON.stringify({
+                    name: values.name,
+                    email: values.email,
+                    subject: values.subject,
+                    message: values.message,
                   }),
                 })
+                  .then((res) => res.json())
                   .then(() => {
                     setSuccess(true);
                     // setDisplayform(false);
@@ -209,12 +218,9 @@ function Contact() {
                 email: Yup.string("Enter your email")
                   .email("Email should be valid")
                   .required("Required"),
-                name: Yup.string("Enter your name")
-                  .required("Required"),
-                subject: Yup.string("Enter your subject")
-                  .required("Required"),
-                message: Yup.string("Enter your  message")
-                  .required("Required"),
+                name: Yup.string("Enter your name").required("Required"),
+                subject: Yup.string("Enter your subject").required("Required"),
+                message: Yup.string("Enter your  message").required("Required"),
               })}
             >
               {(props) => {
@@ -236,9 +242,7 @@ function Contact() {
                       value={values.name}
                       onBlur={handleBlur}
                       error={touched.name && errors.name}
-                      helperText={
-                        touched.name ? errors.name : null
-                      }
+                      helperText={touched.name ? errors.name : null}
                       onChange={handleChange}
                     />
                     <CustomTextfield
@@ -247,9 +251,7 @@ function Contact() {
                       placeholder="Email"
                       onBlur={handleBlur}
                       error={touched.email && errors.email}
-                      helperText={
-                        touched.email ? errors.email : null
-                      }
+                      helperText={touched.email ? errors.email : null}
                       onChange={handleChange}
                     />
                     <CustomTextfield
@@ -257,9 +259,7 @@ function Contact() {
                       placeholder="Subject"
                       onBlur={handleBlur}
                       error={touched.subject && errors.subject}
-                      helperText={
-                        touched.subject ? errors.subject : null
-                      }
+                      helperText={touched.subject ? errors.subject : null}
                       value={values.subject}
                       onChange={handleChange}
                     />
@@ -269,14 +269,11 @@ function Contact() {
                       name="message"
                       onBlur={handleBlur}
                       error={touched.message && errors.message}
-                      helperText={
-                        touched.message ? errors.message : null
-                      }
+                      helperText={touched.message ? errors.message : null}
                       placeholder="Message"
                       multiline
                       rows={4}
                     />
-                    <div data-netlify-recaptcha="true"></div>
 
                     <Button
                       type="submit"
@@ -285,7 +282,7 @@ function Contact() {
                       size="large"
                       variant="contained"
                       className={classes.submitBtn}
-                    //disabled={!(dirty && isValid)}
+                      //disabled={!(dirty && isValid)}
                     >
                       Send Message
                     </Button>

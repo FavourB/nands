@@ -54,8 +54,10 @@ function About() {
           </Typography>
           <div className={classes.border}></div>
           <Typography pr={7} className={classes.about__text} variant="body2">
-            As all things do, it started as a thought; and great thoughts have the ability to spark, move, and alter the world as we know it. This is what N&S Tech is here to do. Right at the heart of our firm, is the desire to bring together the right people, highly skilled individuals of varying race, gender, nationality and background, to get the work done.
-         <br /><br /> We started N&S Tech to change the present tech culture, establishing integrity, diligence, discipline and innovation, qualities that are mostly absent in engineering teams. That all projects are completed with the best business practices, and the highest customer satisfaction.
+          As all great things do, it started as a thought; and great thoughts, as we know, have the ability to spark, move, and alter the world as we know it. This is what N&S Tech is here to do. Right at the heart of our firm, is the desire to build a community with the right people, highly skilled individuals of varying race, gender, nationality and background, to get the work done.
+
+         <br /><br /> We started N&S Tech to change the present “tech culture”, establishing integrity, diligence, discipline and innovation in a fast-changing world. With N&S Tech, all projects are completed with the best business practices, ensuring you get just the right amount of satisfaction from your projects.
+
           </Typography>
         </Grid>
         <Grid item xs={12} sm={6}>

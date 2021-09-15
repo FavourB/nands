@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
     card: {
         //height: 230,
         width: "90%",
-        height: 300,
+        height: 350,
         backgroundColor: theme.palette.primary.dark,
         padding: theme.spacing(5, 3, 3),
         borderRadius: "15px",
@@ -154,7 +154,8 @@ const WhyChooseUs = () => {
                                 Quality
                             </Typography>
                             <Typography variant="body2" style={{ lineHeight: 1.3 }}>
-                                We are a software company equipped with all necessary skills to provide work that meets industry standards.
+                            We are a software company equipped with all the necessary skills to provide quality work that meets your standards. With us, you only get the best quality for your business.
+
                            </Typography >
                         </Card>
                     </Grid>
@@ -171,7 +172,7 @@ const WhyChooseUs = () => {
                                 Reliability
                             </Typography>
                             <Typography variant="body2" style={{ lineHeight: 1.3 }}>
-                                Teams put together for your projects will deliver top quality work in a timely manner, as agreed.
+                            We make sure our teams put together to handle your projects will deliver top quality work in a timely manner, optimising every feature to meet your standards based on feedback from you.
 
                            </Typography >
                         </Card>

@@ -34,6 +34,7 @@ import Mobilemenu from "../Mobilemenu";
 import WhyChooseUs from "../WhyChooseUs";
 import OurServices from "../OurServices";
 import OurTeam from "../team/ourteam";
+import { Link as NavLink } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -56,6 +57,7 @@ const useStyles = makeStyles((theme) => ({
       width: "75%",
     },
   },
+
   componentcontainer: {
     marginLeft: theme.spacing(20),
     marginRight: theme.spacing(20),
@@ -188,6 +190,14 @@ const useStyles = makeStyles((theme) => ({
     "&:hover": {
       background: theme.palette.secondary.main,
       color: "#FFF",
+      textDecoration: "none",
+    },
+  },
+  contactuslink: {
+    textDecoration: "none",
+
+    "&:hover": {
+      textDecoration: "none",
     },
   },
   sectionMobile: {
@@ -338,34 +348,28 @@ function App(props) {
                   <Grid item xs={2}>
                     {" "}
                     <Button className={classes.link}>
-                      <Link
-                        className={classes.link}
-                        to="home"
-                        spy={true}
-                        smooth={true}
-                        offset={-100}
-                        duration={500}
-                      >
+                      <NavLink className={classes.link} href="#home">
                         Home
-                      </Link>{" "}
+                      </NavLink>{" "}
                     </Button>
                   </Grid>
                   <Grid item xs={3}>
                     {" "}
                     <Button className={classes.link}>
-                      <Link
-                        className={classes.link}
-                        to="ourservices"
-                        spy={true}
-                        smooth={true}
-                        offset={-100}
-                        duration={500}
-                      >
+                      <NavLink className={classes.link} href="#ourservices">
                         Our Services
-                      </Link>{" "}
+                      </NavLink>{" "}
                     </Button>
                   </Grid>
                   <Grid item xs={3}>
+                    {" "}
+                    <Button className={classes.link}>
+                      <NavLink className={classes.link} href="#aboutus">
+                        About Us
+                      </NavLink>{" "}
+                    </Button>
+                  </Grid>
+                  {/* <Grid item xs={3}>
                     {" "}
                     <Button className={classes.link}>
                       <Link
@@ -379,6 +383,16 @@ function App(props) {
                         About Us
                       </Link>{" "}
                     </Button>
+                  </Grid> */}
+                  <Grid item xs={3}>
+                    <Button className={classes.link}>
+                      <NavLink
+                        className={classes.link}
+                        href="https://www.blog.nands.io/"
+                      >
+                        Blog
+                      </NavLink>
+                    </Button>
                   </Grid>
                 </Grid>
               </Grid>
@@ -391,23 +405,20 @@ function App(props) {
                   alignItems="center"
                 >
                   <Grid item xs={5}>
-                    <Button
-                      variant="outlined"
-                      color="secondary"
-                      className={classes.contactus}
-                      size="small"
-                      disableElevation
+                    <NavLink
+                      href="#contactus"
+                      className={classes.contactuslink}
                     >
-                      <Link
-                        to="contactus"
-                        spy={true}
-                        smooth={true}
-                        offset={-300}
-                        duration={500}
+                      <Button
+                        variant="outlined"
+                        color="secondary"
+                        className={classes.contactus}
+                        size="small"
+                        disableElevation
                       >
                         Contact us
-                      </Link>
-                    </Button>
+                      </Button>
+                    </NavLink>
                   </Grid>
                   <Grid item xs={7}>
                     <FormControlLabel
@@ -441,6 +452,9 @@ function App(props) {
           <Box className={classes.componentcontainer}>
             <WhyChooseUs />
           </Box>
+          {/* <div className={classes.componentcontainer} id="ourservices">
+            <OurServices />
+          </div> */}
           <Box className={classes.componentcontainer} id="ourservices">
             <OurServices />
           </Box>
