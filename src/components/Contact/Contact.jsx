@@ -143,7 +143,7 @@ function Contact() {
               className={classes.con_email}
               href="mailto:nandsteq@gmail.com"
             >
-              nandsteq@gmail.com
+              info@nands.io
             </Link>
           </div>
           <div className={classes.list}>
@@ -282,7 +282,7 @@ function Contact() {
                       size="large"
                       variant="contained"
                       className={classes.submitBtn}
-                      //disabled={!(dirty && isValid)}
+                    //disabled={!(dirty && isValid)}
                     >
                       Send Message
                     </Button>
